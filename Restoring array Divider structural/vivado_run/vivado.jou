@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Wed Nov 13 17:59:43 2019
+# Process ID: 24700
+# Current directory: C:/Users/Aditya Tripathi/Desktop/WEEK4_include_structural_booth/week4/blog/Divider/vivado_run
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent23956 C:\Users\Aditya Tripathi\Desktop\WEEK4_include_structural_booth\week4\blog\Divider\vivado_run\post_synth.dcp
+# Log file: C:/Users/Aditya Tripathi/Desktop/WEEK4_include_structural_booth/week4/blog/Divider/vivado_run/vivado.log
+# Journal file: C:/Users/Aditya Tripathi/Desktop/WEEK4_include_structural_booth/week4/blog/Divider/vivado_run\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_checkpoint {C:/Users/Aditya Tripathi/Desktop/WEEK4_include_structural_booth/week4/blog/Divider/vivado_run/post_synth.dcp}
+report_design_analysis -timing -setup -max_paths 10 -name design_analysis_1
