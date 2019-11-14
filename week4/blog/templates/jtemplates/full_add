@@ -1,0 +1,11 @@
+//full adder code
+module full_add(a,b,cin,s,cout);
+input a,b,cin;
+output s,cout;
+wire r,r1,r2;
+xor(s,a,b,cin);
+and(r,a,b);
+and(r1,b,cin);
+and(r2,a,cin);
+or(cout,r,r1,r2);
+endmodule

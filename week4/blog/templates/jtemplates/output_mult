@@ -1,0 +1,8 @@
+assign p[0] = a[0]&b[0];
+{% for i in list1 %}
+assign p[{{i+1}}] = first_layer_sum[{{(i)*(n-1)}}];
+{% endfor %}
+{% for i in list2 %}
+assign p[{{i}}] = first_layer_sum[{{(n-2)*(n-1)+i-1}}];
+{% endfor %}
+assign p[{{2*n-1}}] = first_layer_carry[{{(n)*(n-1)-1}}];

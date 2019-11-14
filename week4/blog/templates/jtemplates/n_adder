@@ -1,0 +1,4 @@
+module n_add(arr,sum,cout);
+input [n-1:0]arr;
+wire [n*(n-1):0]c;
+output s,cout;

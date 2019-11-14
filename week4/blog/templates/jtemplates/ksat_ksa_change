@@ -1,0 +1,31 @@
+//roopakji
+module bcell(input Dk_j, input Ji_k, input Di_k, input Jk_j, output D, output J); // Generate==D, Propagate==J
+ wire Z;
+ and(Z, Dk_j, Ji_k);
+ or(D, Di_k, Z);
+ and(J, Jk_j, Ji_k);
+endmodule
+
+module gcell(input Dk_j, input Ji_k, input Di_k, output D);
+ wire Z;
+ and(Z, Dk_j, Ji_k);
+ or(D, Z, Di_k);
+endmodule
+
+module and_xor(input A, input B, output j, output d);
+ xor(j, A, B);
+ and(d, A, B);
+endmodule
+
+module {{modulename}} (
+    {{signals}}
+);
+{{wiring}}
+{{a}}
+{{b}}
+{{c}}
+
+endmodule
+
+
+

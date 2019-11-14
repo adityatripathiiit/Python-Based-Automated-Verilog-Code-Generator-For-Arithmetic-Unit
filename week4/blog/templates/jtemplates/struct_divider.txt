@@ -1,0 +1,41 @@
+module substep(input wire [{{n-1}}:0]p,input integer i,input wire [{{n-1}}:0]Divisor,input wire [{{n-1}}:0]a,input wire [{{n}}:0]use,output reg [{{n-1}}:0] pout,output reg [{{n-1}}:0] aout,output reg [{{n}}:0]used);
+reg [{{n-1}}:0]temp;
+    always@(*)begin
+            use[i]=pout[i];
+            pout = (p << 1) | a[{{n-1}}];
+            aout = a << 1;
+
+ 
+            temp = p;
+            pout = pout - Divisor;
+
+            if( p[{{n-1}}] ) // if p < 0
+                pout = temp; //restore value
+            else
+                aout = aout | 1;end
+endmodule
+
+module {{modulename}}(clk, Dividend, Divisor, Quotient, Remainder);
+    input clk;
+    input [{{n-1}}:0] Dividend, Divisor;
+    output [{{n-1}}:0] Quotient, Remainder;
+    reg [{{n-1}}:0] Quotient, Remainder;
+    reg [{{n-1}}:0] p, a, temp;
+    integer i;
+    reg [{{n}}:0]use
+    always @(posedge clk)
+    begin
+        begin
+            Quotient <= a;
+            Remainder <= p;
+        end
+    end
+    always @(*)
+    begin
+        a = Dividend;
+        p = 0;
+    end
+{% for i in range(n) %}
+ substep  inst{{i}}(p,{{i}},Divisor,a,use[{{i}}],pout,aout,use[{{i+1}}]);
+{%endfor%}
+endmodule

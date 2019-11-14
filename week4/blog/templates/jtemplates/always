@@ -1,0 +1,4 @@
+always @({{sensetivity}})
+begin
+	{{code}}
+end

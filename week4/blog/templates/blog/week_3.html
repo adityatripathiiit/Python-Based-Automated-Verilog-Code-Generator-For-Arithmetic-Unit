@@ -1,0 +1,62 @@
+{% extends "blog/base.html" %}{%block content%}
+<!-- <h1>{{post.title}}</h1>
+        <p>By {{post.author}} on {{post.data_posted}}</p>
+        <p>{{post.content}}</p> -->
+<article class="media content-section">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="#">N- bit Wallace-Tree Multiplier</a>
+        </div>
+        <div class="form-group" style="margin-right:30px;margin-bottom:10px;">
+            <form action="{% url 'week3_wallace' %}" method="POST">
+                {% csrf_token %}
+                <label style="margin-right:30px;">N</label>
+                <input type="number" class="form-control" name="N" id="N">
+                <label style="margin-right:30px;margin-left:10px;">modulename</label>
+
+                <input type="text" class="form-control" name="modulename" id="modulename">
+                <!-- <label style="margin-right:30px;margin-left:10px;">Behavioural/Structural</label> -->
+                <!-- <input type="text" class="form-control" name="BS" id="BS"> -->
+                <!-- <select name="BS" id="BS">
+                        <option value="B">Behavioural</option>
+                        <option value="S">Structural</option>
+                      </select> -->
+                <input type="submit" value="Click" >
+                <!--- /blog -->
+            </form>
+        </div>
+</article> 
+<article class="media content-section">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="#">N-bit Array Multiplier</a>
+        </div>
+
+        <div class="form-group" style="margin-right:30px;margin-bottom:10px;">
+            <form action="{% url 'arrMult' %}" method="POST">
+                {% csrf_token %}
+                <label style="margin-right:30px;">N</label>
+                <input type="number" class="form-control" name="N" id="N">
+                <label style="margin-right:30px;margin-left:10px;">modulename</label>
+
+                <input type="text" class="form-control" name="modulename" id="modulename">
+                <label style="margin-right:30px;margin-left:10px;">Behavioural/Structural</label>
+                <!-- <input type="text" class="form-control" name="BS" id="BS"> -->
+                <select name="BS" id="BS">
+                        <option value="B">Behavioural</option>
+                        <option value="S">Structural</option>
+                      </select>
+                <input type="submit" value="Click">
+
+                <!--- /blog -->
+            </form>
+        </div>
+
+        <div class="form-group">
+
+        </div>
+
+
+</article>
+
+{%endblock content%}

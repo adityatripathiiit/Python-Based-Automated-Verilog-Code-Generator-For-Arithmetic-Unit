@@ -1,0 +1,86 @@
+{% extends "blog/base.html" %} {%block content%}
+<article class="media content-section">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="#">N-bit Kogg Stone adder</a>
+        </div>
+        <div class="form-group" style="margin-right:30px;margin-bottom:10px;">
+            <form action="{% url 'week2_kogg' %}" method="POST">
+                {% csrf_token %}
+                <label style="margin-right:30px;">N</label>
+                <input type="number" class="form-control" name="N" id="N">
+                <label style="margin-right:30px;margin-left:10px;">modulename</label>
+                <input type="text" class="form-control" name="modulename" id="modulename">
+                <input type="submit" value="Click" >
+
+                <!--- /blog -->
+            </form>
+        </div>
+
+
+
+
+</article> 
+<article class="media content-section">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="#">N-bit Carry Look Ahead adder</a>
+        </div>
+
+        <div class="form-group" style="margin-right:30px;margin-bottom:10px;">
+            <form action="{% url 'week2_carry' %}" method="POST">
+                {% csrf_token %}
+                <label style="margin-right:30px;">N</label>
+                <input type="number" class="form-control" name="N" id="N">
+                <label style="margin-right:30px;margin-left:10px;">modulename</label>
+
+                <input type="text" class="form-control" name="modulename" id="modulename">
+                <!-- <label style="margin-right:30px;margin-left:10px;">Behavioural/Structural</label> -->
+                <!-- <input type="text" class="form-control" name="BS" id="BS"> -->
+                <!-- <select name="BS" id="BS">
+                        <option value="B">Behavioural</option>
+                        <option value="S">Structural</option>
+                      </select> -->
+
+                <input type="submit" value="Click" >
+
+                <!--- /blog -->
+            </form>
+        </div>
+
+
+
+
+</article>
+<article class="media content-section">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="#">N-bit Carry Select adder</a>
+        </div>
+
+        <div class="form-group" style="margin-right:30px;margin-bottom:10px;">
+            <form action="{% url 'week2_CSA' %}" method="POST">
+                {% csrf_token %}
+                <label style="margin-right:30px;">N</label>
+                <input type="number" class="form-control" name="N" id="N">
+                <label style="margin-right:30px;margin-left:10px;">modulename</label>
+
+                <input type="text" class="form-control" name="modulename" id="modulename">
+                <!-- <label style="margin-right:30px;margin-left:10px;">Behavioural/Structural</label> -->
+                <!-- <input type="text" class="form-control" name="BS" id="BS"> -->
+                <!-- <select name="BS" id="BS">
+                        <option value="B">Behavioural</option>
+                        <option value="S">Structural</option>
+                      </select> -->
+
+                <input type="submit" value="Click" id="CSA" >
+
+                <!--- /blog -->
+            </form>
+        </div>
+
+
+
+
+</article>
+{%endblock content%}

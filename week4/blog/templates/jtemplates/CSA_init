@@ -1,0 +1,19 @@
+wire [{{n-1}}:0]s1;
+wire [{{n-1}}:0]s2;
+wire [{{n-1}}:0]c1;
+wire [{{n-1}}:0]c2;
+//Carry select adder part 1 with carry input 0
+full_add fa1_{{0}}(x[0],y[0],1'b0,s1[0],c1[0]);
+{% for i in range(1,n) %}
+full_add fa1_{{i}}(x[{{i}}],y[{{i}}],c1[{{i-1}}],s1[{{i}}],c1[{{i}}]);
+{% endfor %}
+full_add fa2_{{0}}(x[0],y[0],1'b1,s2[0],c2[0]);
+//Carry select adder part 1 with carry input 1
+{% for i in range(1,n) %}
+full_add fa2_{{i}}(x[{{i}}],y[{{i}}],c2[{{i-1}}],s2[{{i}}],c2[{{i}}]);
+{% endfor %}
+{% for i in range(n) %}
+mux m{{i}}(s1[{{i}}],s2[{{i}}],cin,sum[{{i}}]);
+{% endfor %}
+mux f(c1[{{n-1}}],c2[{{n-1}}],cin,cout);
+

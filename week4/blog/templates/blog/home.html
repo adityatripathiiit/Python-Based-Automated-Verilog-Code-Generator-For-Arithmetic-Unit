@@ -1,0 +1,35 @@
+{% extends "blog/base.html" %} {%block content%} {%for post in posts%}
+<!-- <h1>{{post.title}}</h1>
+        <p>By {{post.author}} on {{post.data_posted}}</p>
+        <p>{{post.content}}</p> -->
+<article class="media content-section">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="#">{{ post.multipliers }}</a>
+        </div>
+
+        <div class="form-group" style="margin-right:30px;margin-bottom:10px;">
+            <form action="{% url 'week1_array' %}" method="POST">
+                {% csrf_token %}
+                <label style="margin-right:30px;">{{post.form_1}}</label>
+                <input type="number" class="form-control" name="N" id="N">
+                <label style="margin-right:30px;margin-left:10px;">modulename</label>
+
+                <input type="text" class="form-control" name="modulename" id="modulename">
+                <label style="margin-right:30px;margin-left:10px;">Behavioural/Structural</label>
+                <!-- <input type="text" class="form-control" name="BS" id="BS"> -->
+                <select name="BS" id="BS">
+                        <option value="B">Behavioural</option>
+                        <option value="S">Structural</option>
+                      </select>
+                <input type="submit" value="Click">
+
+                <!--- /blog -->
+            </form>
+        </div>
+        <div class="form-group">
+            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+        </div>
+</article>
+{%endfor%} {%endblock content%}

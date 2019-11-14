@@ -1,0 +1,33 @@
+//Booth multiplier code
+
+module Booth_Main(p,a,b);
+output [{{2*n}}:0]p;
+input [{{n}}:0]a,b;
+wire [{{2*n}}:0]w[n:0];
+wire [{{n+1}}:0]q;
+assign q = {b,1'b0};
+    assign p=w[0]{%for i in range(n)%}+(w[{{i}}]<<{{i}}){%endfor%};
+genvar i;
+generate
+for(i=0;i<={{n}};i=i+1)
+begin
+MUX #(.n({{n}}))m1(w[i],a,q[i+1:i]);
+end
+endgenerate
+endmodule
+
+module MUX(p,a,s);
+output reg [{{2*n}}:0]p;
+input [{{n}}:0]a;
+input [1:0]s;
+
+always @ (a,s)
+begin
+case(s)
+2'b00: p<=0;
+2'b01: p<= a;
+2'b10: p<= ~a+1;
+2'b11: p<=0;
+endcase
+end
+endmodule

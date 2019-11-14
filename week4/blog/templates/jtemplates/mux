@@ -1,0 +1,7 @@
+//multiplexer code
+module mux(input i0,input i1,input s,output c);
+wire a,b;
+and(a,~s,i0);
+and(b,s,i1);
+or(c,a,b);
+endmodule

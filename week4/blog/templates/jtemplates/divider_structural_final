@@ -1,0 +1,55 @@
+//guruji
+`timescale 1ns/1ps
+
+module fa(a,b,cin,s,cout);
+input a,b,cin;
+output s,cout;
+wire r,r1,r2;
+xor(s,a,b,cin);
+and(r,a,b);
+and(r1,b,cin);
+and(r2,a,cin);
+or(cout,r,r1,r2);
+endmodule
+
+module subtractor(a,b,sum);
+	input [{{n-1}}:0] a,b;
+	output [{{n-1}}:0]sum;
+	wire [{{n-1}}:0] ib;
+	wire cout;
+	{% for i in range(n)%}
+	  not(ib[{{i}}],b[{{i}}]);
+	{%endfor%}
+
+	wire [{{n-1}}:0] q;
+	fa fa0(a[0],ib[0],1'b1,sum[0],q[0]);
+	{% for i in range(1,n-1)%}
+	  fa fa{{i}}(a[{{i}}],ib[{{i}}],q[{{i-1}}],sum[{{i}}],q[{{i}}]);
+	{%endfor%}
+	fa fa{{n}}(a[{{n-1}}],ib[{{n-1}}],q[{{n-2}}],sum[{{n-1}}],cout);
+endmodule
+module sub(p,a,divi,aout,pout);
+input wire [{{n-1}}:0]p;
+input wire [{{n-1}}:0]divi;
+input wire [{{n-1}}:0]a;
+output [{{n-1}}:0]aout;
+output [{{n-1}}:0]pout;
+wire [{{n-1}}:0]pout1,aout1,temp,pout2;
+assign pout1 = (p << 1) | a[{{n-1}}];
+assign aout1 = a << 1;
+assign temp = pout1;
+subtractor inst1(pout1,divi,pout2);
+assign pout = (pout2[{{n-1}}])?(temp):(pout2);
+assign aout = (pout2[{{n-1}}])?(aout1):(aout1 | 1);
+endmodule
+module {{modulename}}(Dividend, Divisor, Quotient, Remainder);
+input [{{n-1}}:0] Dividend, Divisor;
+output [{{n-1}}:0] Quotient, Remainder;
+wire [{{n-1}}:0] {% for i in range(1,n) %}p{{i}},{%endfor%}p{{n}},{%for i in range(1,n)%}a{{i}},{%endfor%}a{{n}};
+sub inst({{n}}'b{%for i in range(n)%}0{%endfor%},Dividend,Divisor,a1,p1);
+{% for i in range(1,n) %}
+sub inst{{i}}(p{{i}},a{{i}},Divisor,a{{i+1}},p{{i+1}});
+{% endfor %}
+assign Quotient=a{{n}};
+assign Remainder=p{{n}};
+endmodule

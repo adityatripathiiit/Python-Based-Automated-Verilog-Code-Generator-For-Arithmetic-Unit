@@ -1,0 +1,5 @@
+//half adder code
+module half_adder(input a,input b,output s,output cout);
+xor(s,a,b);
+and(cout,a,b);
+endmodule

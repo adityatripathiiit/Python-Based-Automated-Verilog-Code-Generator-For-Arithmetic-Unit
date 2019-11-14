@@ -1,0 +1,347 @@
+//guruji
+{{module}}
+
+module anode_control(
+input [1:0] refreshcounter,
+output reg [3:0] anode=0
+);
+
+always@(refreshcounter)
+begin
+    case(refreshcounter)
+        2'd0: anode=4'b1110;
+        2'd1: anode=4'b1101;
+        2'd2: anode=4'b1011;
+        2'd3: anode=4'b0111;
+    endcase
+end
+endmodule
+
+module BCD_control(
+input [3:0] digit1,
+input [3:0] digit2,
+input [3:0] digit3,
+input [3:0] digit4,
+input [1:0] refresh_counter,
+output reg [3:0] DIG
+);
+
+always@ (refresh_counter)
+begin
+    case(refresh_counter)
+        2'd0: DIG=digit1;
+        2'd1: DIG=digit2;
+        2'd2: DIG=digit3;
+        2'd3: DIG=digit4;
+    endcase
+end
+
+endmodule
+
+
+module BCD_to_cathodes(
+input [3:0] digit,
+output reg [6:0] cathode=0
+);
+
+always@(digit)
+begin
+    case(digit)
+        4'd0: cathode=7'b1000000;
+        4'd1: cathode=7'b1111001;
+        4'd2: cathode=7'b0100100;
+        4'd3: cathode=7'b0110000;
+        4'd4: cathode=7'b0011001;
+        4'd5: cathode=7'b0010010;
+        4'd6: cathode=7'b0000010;
+        4'd7: cathode=7'b1111000;
+        4'd8: cathode=7'b0000000;
+        4'd9: cathode=7'b0010000;
+        4'd10: cathode=7'b0001000;
+        4'd11: cathode=7'b0000011;
+        4'd12: cathode=7'b1000110;
+        4'd13: cathode=7'b0100001;
+        4'd14: cathode=7'b0000110;
+        4'd15: cathode=7'b0001110;
+        default: cathode=7'b1000000;
+    endcase
+end
+endmodule
+
+module clock_divider(
+input clk,
+output reg divided_clk =0  
+); 
+localparam div_value = 4999;  
+integer counter_value = 0;  
+
+always@(posedge clk )
+if(counter_value == div_value)
+begin
+    counter_value <= 0;
+    divided_clk=divided_clk+1;
+end 
+else counter_value <= counter_value+1;
+
+endmodule
+
+
+`timescale 1ns / 1ps
+module receiver(
+input clk, //input clock
+input reset, //input reset 
+input RxD, //input receving data line
+output [7:0]RxData // output for 8 bits data
+// output [7:0]LED // output 8 LEDs
+    );
+//internal variables
+reg shift; // shift signal to trigger shifting data
+reg state, nextstate; // initial state and next state variable
+reg [3:0] bitcounter; // 4 bits counter to count up to 9 for UART receiving
+reg [1:0] samplecounter; // 2 bits sample counter to count up to 4 for oversampling
+reg [13:0] counter; // 14 bits counter to count the baud rate
+reg [9:0] rxshiftreg; //bit shifting register
+reg clear_bitcounter,inc_bitcounter,inc_samplecounter,clear_samplecounter; //clear or increment the counter
+
+// constants
+parameter clk_freq = 100_000_000;  // system clock frequency
+parameter baud_rate = 9_600; //baud rate
+parameter div_sample = 4; //oversampling
+parameter div_counter = clk_freq/(baud_rate*div_sample);  // this is the number we have to divide the system clock frequency to get a frequency (div_sample) time higher than (baud_rate)
+parameter mid_sample = (div_sample/2);  // this is the middle point of a bit where you want to sample it
+parameter div_bit = 10; // 1 start, 8 data, 1 stop
+
+
+assign RxData = rxshiftreg [8:1]; // assign the RxData from the shiftregister
+
+//UART receiver logic
+always @ (posedge clk)
+    begin 
+        if (reset)begin // if reset is asserted
+            state <=0; // set state to idle 
+            bitcounter <=0; // reset the bit counter
+            counter <=0; // reset the counter
+            samplecounter <=0; // reset the sample counter
+        end else begin // if reset is not asserted
+            counter <= counter +1; // start count in the counter
+            if (counter >= div_counter-1) begin // if counter reach the baud rate with sampling 
+                counter <=0; //reset the counter
+                state <= nextstate; // assign the state to nextstate
+                if (shift)rxshiftreg <= {RxD,rxshiftreg[9:1]}; //if shift asserted, load the receiving data
+                if (clear_samplecounter) samplecounter <=0; // if clear sampl counter asserted, reset sample counter
+                if (inc_samplecounter) samplecounter <= samplecounter +1; //if increment counter asserted, start sample count
+                if (clear_bitcounter) bitcounter <=0; // if clear bit counter asserted, reset bit counter
+                if (inc_bitcounter)bitcounter <= bitcounter +1; // if increment bit counter asserted, start count bit counter
+            end
+        end
+    end
+   
+//state machine
+
+always @ (posedge clk) //trigger by clock
+begin 
+    shift <= 0; // set shift to 0 to avoid any shifting 
+    clear_samplecounter <=0; // set clear sample counter to 0 to avoid reset
+    inc_samplecounter <=0; // set increment sample counter to 0 to avoid any increment
+    clear_bitcounter <=0; // set clear bit counter to 0 to avoid claring
+    inc_bitcounter <=0; // set increment bit counter to avoid any count
+    nextstate <=0; // set next state to be idle state
+    case (state)
+        0: begin // idle state
+            if (RxD) // if input RxD data line asserted
+              begin
+              nextstate <=0; // back to idle state because RxD needs to be low to start transmission    
+              end
+            else begin // if input RxD data line is not asserted
+                nextstate <=1; //jump to receiving state 
+                clear_bitcounter <=1; // trigger to clear bit counter
+                clear_samplecounter <=1; // trigger to clear sample counter
+            end
+        end
+        1: begin // receiving state
+            nextstate <= 1; // DEFAULT 
+            if (samplecounter== mid_sample - 1) shift <= 1; // if sample counter is 1, trigger shift 
+                if (samplecounter== div_sample - 1) begin // if sample counter is 3 as the sample rate used is 3
+                    if (bitcounter == div_bit - 1) begin // check if bit counter if 9 or not
+                nextstate <= 0; // back to idle state if bit counter is 9 as receving is complete
+                end 
+                inc_bitcounter <=1; // trigger the increment bit counter if bit counter is not 9
+                clear_samplecounter <=1; //trigger the sample counter to reset the sample counter
+            end else inc_samplecounter <=1; // if sample is not equal to 3, keep counting
+        end
+       default: nextstate <=0; //default idle state
+     endcase
+end         
+endmodule
+
+
+module refreshcounter(
+input refresh_clock,
+output reg [1:0] refreshcounter = 0
+);
+always@(posedge refresh_clock) refreshcounter <= refreshcounter +1;
+endmodule
+
+
+`timescale 1ns / 1ps
+
+
+
+
+
+module top(
+output [15:0] led,
+output dp,
+input btnR,
+input btnL,
+input btnC,
+input btnD, //reset
+input btnU,
+input clk,
+input RxD,
+input [15:0] sw,
+output [3:0] an,
+output [6:0] seg
+);
+wire [3:0] digit;
+wire refreshclk;
+wire [143:0] m;
+wire [1:0] rcounter;
+
+reg temp=0;
+reg [143:0] ab=0;
+reg [15:0] AB=0;
+reg [143:0] DP=0;
+integer counter;
+integer counter2=0;
+integer countled=0;
+reg temp2=0;
+reg temp3=0;
+integer disp=0;
+reg [3:0] temptemp=0;
+
+//u_art start
+    integer counteruart=0;
+    reg [3:0] rx=0;
+    reg [3:0] rxold=0;
+    wire [7:0]RxData;
+    integer intforled=0;
+    
+    receiver uut(clk,btnD,RxD,RxData);
+
+   always @(RxData)
+   begin
+   case(RxData)
+    8'h30: begin rx=4'h0; end
+    8'h31: begin rx=4'h1; end
+    8'h32: begin rx=4'h2; end
+    8'h33: begin rx=4'h3; end
+    8'h34: begin rx=4'h4; end
+    8'h35: begin rx=4'h5; end
+    8'h36: begin rx=4'h6; end
+    8'h37: begin rx=4'h7; end
+    8'h38: begin rx=4'h8; end
+    8'h39: begin rx=4'h9; end
+    8'h41: begin rx=4'hA; end
+    8'h42: begin rx=4'hB; end
+    8'h43: begin rx=4'hC; end
+    8'h44: begin rx=4'hD; end
+    8'h45: begin rx=4'hE; end
+    8'h46: begin rx=4'hF; end
+    8'h61: begin rx=4'hA; end
+    8'h62: begin rx=4'hB; end
+    8'h63: begin rx=4'hC; end
+    8'h64: begin rx=4'hD; end
+    8'h65: begin rx=4'hE; end
+    8'h66: begin rx=4'hF; end
+   endcase
+   end    
+//u_art end
+
+clock_divider a(clk,refreshclk);
+refreshcounter b(refreshclk,rcounter);
+anode_control c(rcounter,an);
+
+{{modulename}}(ab[131:68],ab[67:4],ab[0],m[63:0],m[64]);
+BCD_control e(AB[3:0],AB[7:4],AB[11:8],AB[15:12],rcounter,digit);
+BCD_to_cathodes f(digit,seg);
+
+always@(posedge clk)
+begin
+    counter=counter+1;
+    if(counter==30000000)
+    begin
+        temp=temp+1;
+        counter=0;
+    end        
+end   
+
+always@(posedge clk)
+if(counteruart==10000000) 
+    begin 
+    rxold=rx; counteruart=0; temptemp=0;
+    ab[131:4]=ab[127:0]; ab[3:0]=rx;
+    disp=0;
+    //if(intforled==4) begin countled=countled+1; intforled=0; end
+    countled=countled+1; if(countled==8) begin countled=0; intforled=intforled+1; end
+    end
+else if(counteruart!=0) counteruart=counteruart+1;
+else if(rx!=rxold) counteruart=counteruart+1;
+else if(counter2==30000000) begin counter2=0; temp2=0; end
+else if(counter2!=0) counter2=counter2+1;
+else if(btnU && temp2==0) begin temptemp=temptemp+1; 
+                            if(temptemp==9) temptemp=0;  
+                            counter2=counter2+1; temp2=btnU; 
+                            end
+else if(btnC) begin ab=0; countled=0; intforled=0; end
+//else if(btnD && temp2==0)
+//    begin
+//        temptemp=0;
+//        temp2=btnD;
+//        ab[127:16]=ab[111:0];
+//        ab[15:0]=sw;
+//        disp=0;
+//        counter2=counter2+1;
+//        countled=countled+1;            
+//    end
+     else if(btnR) disp=1;
+          else if(btnL) disp=0;
+
+always@(posedge clk)
+begin
+if(disp) DP=m;
+else DP=ab;
+case(temptemp)
+0: AB=DP[15:0];
+1: AB=DP[31:16];
+2: AB=DP[47:32];
+3: AB=DP[63:48];
+4: AB=DP[79:64];
+5: AB=DP[95:80];
+6: AB=DP[111:96];
+7: AB=DP[127:112];
+8: AB=DP[143:128];
+endcase
+end
+
+assign dp=(~(rcounter==0 && temptemp==0));
+
+assign led[0]=(countled==0 && temp && (intforled<5));
+assign led[1]=(countled==1 && temp && (intforled<4));
+assign led[2]=(countled==2 && temp && (intforled<4));
+assign led[3]=(countled==3 && temp && (intforled<4));
+assign led[4]=(countled==4 && temp && (intforled<4));
+assign led[5]=(countled==5 && temp && (intforled<4));
+assign led[6]=(countled==6 && temp && (intforled<4));
+assign led[7]=(countled==7 && temp && (intforled<4));
+
+assign led[8]=(temptemp==0);
+assign led[9]=(temptemp==1);
+assign led[10]=(temptemp==2);
+assign led[11]=(temptemp==3);
+assign led[12]=(temptemp==4);
+assign led[13]=(temptemp==5);
+assign led[14]=(temptemp==6);
+assign led[15]=(temptemp==7);
+
+endmodule

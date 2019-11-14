@@ -1,0 +1,27 @@
+//testbench of the divider
+def testbench_divider(n,Modulename):
+    if(n==1):
+        test='`timescale 1ns/1ps\nmodule tb_test();\nparameter n=1;\nreg  a;\nreg b;\nwire  p;\ninitial\nbegin\na<=1; b<=0; #10;\na<=0; b<=1; #10;\na<=1; b<=1; #10;\na<=0; b<=0; #10;\nend\ntest inst (.a(a),.b(b),.p(p));\ninitial begin\n$monitor("a=%d b=%d,p=%d",a,b, p);\nend\nendmodule'
+        file_dump_divider('tb_'+Modulename, test)
+        return
+    test = ''
+    test += "`timescale 1ns/1ps\n"
+    test += "module tb_"+Modulename+"();\n"
+    test += "parameter n=" + str(n) +";\n"
+    test += "reg [" + str(n-1) +":0] Dividend;\n"
+    test += "reg [" + str(n - 1) + ":0] Divisor;\n"
+    test += "wire [" + str(n-1) +":0] Quotient;\n"
+    test += "wire [" + str(n-1) +":0] Remainder;\n"
+    test += "initial\n"
+    test += "begin\n"
+    for i in range(random.randint(5,n+4)):
+        test += "Dividend<=" + str(random.randint(1, n)) + "; Divisor<=" + str(random.randint(1, n)) + "; #10;\n"
+    test += "end\n"
+    test += Modulename+ " inst (.Dividend(Dividend),.Divisor(Divisor),.Quotient(Quotient),.Remainder(Remainder));\n"
+
+    test+='initial begin\n'
+    test+='$monitor("Quotient=%d Remainder=%d",Quotient,Remainder);\n'
+    test+='     end\n'
+    test += "endmodule\n"
+
+    file_dump_divider('tb_'+Modulename, test)

@@ -1,0 +1,9 @@
+`timescale 1ns / 1ps
+
+{{top}}
+{{top1}}
+module {{modulename}}({{signals}});
+{%for block in blocks%}
+{{block}}
+{%endfor%}
+endmodule

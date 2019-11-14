@@ -1,0 +1,14 @@
+module full_add(a,b,cin,cout,s);
+input a,b,cin;
+output s,cout;
+wire r,r1,r2;
+xor(s,a,b,cin);
+and(r,a,b);
+and(r1,b,cin);
+and(r2,a,cin);
+or(cout,r,r1,r2);
+endmodule
+module half_adder(input a,input b,output cout,output s);
+xor(s,a,b);
+and(cout,a,b);
+endmodule

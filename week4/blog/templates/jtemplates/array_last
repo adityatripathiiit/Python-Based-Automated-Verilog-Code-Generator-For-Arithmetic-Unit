@@ -1,0 +1,6 @@
+
+//layer{{I}}
+{% for i in main_dict.keys() %}
+full_add c{{W[i]-1}}({{main_dict[i]}},first_layer_sum[{{W[i]-1}}], first_layer_carry[{{W[i]-1}}]);
+{% endfor %}
+full_add d{{W[-1]}}({{U}},first_layer_sum[{{W[-1]}}], first_layer_carry[{{W[-1]}}]);

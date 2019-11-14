@@ -1,0 +1,90 @@
+//full adder code
+module fa(a,b,cin,s,cout);
+input a,b,cin;
+output s,cout;
+wire r,r1,r2;
+xor(s,a,b,cin);
+and(r,a,b);
+and(r1,b,cin);
+and(r2,a,cin);
+or(cout,r,r1,r2);
+endmodule
+//N-bit subtractor code
+module subtractor(a,b,sum);
+	input [{{n-1}}:0] a,b;
+	output [{{n-1}}:0]sum;
+	wire [{{n-1}}:0] ib;
+	wire cout;
+	{% for i in range(n)%}
+	  not(ib[{{i}}],b[{{i}}]);
+	{%endfor%}
+
+	wire [{{n-1}}:0] q;
+	fa fa0(a[0],ib[0],1'b1,sum[0],q[0]);
+	{% for i in range(1,n-1)%}
+	  fa fa{{i}}(a[{{i}}],ib[{{i}}],q[{{i-1}}],sum[{{i}}],q[{{i}}]);
+	{%endfor%}
+	fa fa{{n}}(a[{{n-1}}],ib[{{n-1}}],q[{{n-2}}],sum[{{n-1}}],cout);
+endmodule
+
+//N-bit adder
+module Adder(a,b,sum);
+	input [{{n-1}}:0] a,b;
+	output [{{n-1}}:0]sum;
+	wire cout;
+	wire [{{n-1}}:0] q;
+    fa fa0(a[0],b[0],1'b0,sum[0],q[0]);
+    {% for i in range(1,n-1) %}
+    fa fa{{i}}(a[{{i}}],b[{{i}}],q[{{i-1}}],sum[{{i}}],q[{{i}}]);
+    {% endfor %}
+    fa fa{{n}}(a[{{n-1}}],b[{{n-1}}],q[{{n-2}}],sum[{{n-1}}],cout);
+endmodule
+
+//booth module substep to get the staged output
+module booth_substep(input wire [{{n-1}}:0]a,Q,input wire q0,input wire [{{n-1}}:0] m,output reg [{{n-1}}:0] f8,output reg [{{n-1}}:0] l8,output reg cq0);
+	wire [{{n-1}}:0] addam,subam;
+	Adder myadd(a,m,addam);
+	subtractor mysub(a,m,subam);
+		always @(*) begin	
+		if(Q[0] == q0) begin
+			 cq0 = Q[0];
+			l8 = Q>>1;
+			 l8[{{n-1}}] = a[0];
+			 f8 = a>>1;
+			if (a[{{n-1}}] == 1)
+			f8[{{n-1}}] = 1;
+		end
+
+		else if(Q[0] == 1 && q0 ==0) begin
+			 cq0 = Q[0];
+				l8 = Q>>1;
+			 l8[{{n-1}}] = subam[0];
+			 f8 = subam>>1;
+			if (subam[{{n-1}}] == 1)
+			f8[{{n-1}}] = 1;
+		end
+
+		else begin
+			 cq0 = Q[0];
+				l8 = Q>>1;
+			 l8[{{n-1}}] = addam[0];
+			 f8 = addam>>1;
+			if (addam[{{n-1}}] == 1)
+			f8[{{n-1}}] = 1;
+		end
+end	
+endmodule 
+//main module booth
+module {{modulename}}(input [{{n-1}}:0]a,b,output [{{2*n-1}}:0] p);
+	wire [{{n-1}}:0]{% for i in range(n-1) %} Q{{i}},{%endfor%}Q{{n-1}};
+	wire [{{n-1}}:0] m;
+	wire [{{n-1}}:0]{% for i in range(n-1) %} A{{i}},{%endfor%}A{{n-1}};
+	wire [{{n-1}}:0] q0;
+	wire qout;
+	//generating substep output
+    booth_substep step0(0,a,1'b0,b,A1,Q1,q0[1]);
+	{% for i in range(1,n-1) %}
+    booth_substep step{{i}}(A{{i}},Q{{i}},q0[{{i}}],b,A{{i+1}},Q{{i+1}},q0[{{i+1}}]);
+    {%endfor%}
+	booth_substep step{{n}}(A{{n-1}},Q{{n-1}},q0[{{n-1}}],b,p[{{2*n-1}}:{{n}}],p[{{n-1}}:0],qout);
+endmodule

@@ -1,0 +1,6 @@
+wire [{{n*(n-1)-1}}:0]first_layer_sum,first_layer_carry;
+
+//First Layer
+{% for i in main_dict.keys() %}
+full_add a{{i}}({{main_dict[i][0]}}, {{main_dict[i][1]}} , 1'b0 ,first_layer_sum[{{i}}], first_layer_carry[{{i}}]);
+{% endfor %}
