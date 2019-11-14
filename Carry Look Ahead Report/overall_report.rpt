@@ -1,0 +1,65 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Wed Oct 30 16:11:12 2019
+| Host         : DESKTOP-6K5NDHQ running 64-bit major release  (build 9200)
+| Command      : report_design_analysis -file ./vivado_run/overall_report.rpt
+| Design       : top
+| Device       : xc7a35t
+| Design State : Routed
+------------------------------------------------------------------------------------
+
+Report Design Analysis
+
+Table of Contents
+-----------------
+1. Setup Path Characteristics 1-1
+2. Logic Level Distribution
+
+1. Setup Path Characteristics 1-1
+---------------------------------
+
++---------------------------+----------------------------------------------------------------------------------+
+|      Characteristics      |                                      Path #1                                     |
++---------------------------+----------------------------------------------------------------------------------+
+| Requirement               |                                                                           10.000 |
+| Path Delay                |                                                                            9.272 |
+| Logic Delay               | 2.455(27%)                                                                       |
+| Net Delay                 | 6.817(73%)                                                                       |
+| Clock Skew                |                                                                            0.027 |
+| Slack                     |                                                                            0.677 |
+| Clock Relationship        | Safely Timed                                                                     |
+| Logic Levels              |                                                                               14 |
+| Routes                    |                                                                               14 |
+| Logical Path              | FDRE LUT6 LUT6 LUT6 LUT6 LUT6 LUT6 LUT6 LUT6 LUT6 LUT6 LUT6 LUT6 MUXF7 LUT5 FDRE |
+| Start Point Clock         | sys_clk_pin                                                                      |
+| End Point Clock           | sys_clk_pin                                                                      |
+| DSP Block                 | None                                                                             |
+| BRAM                      | None                                                                             |
+| IO Crossings              |                                                                                0 |
+| Config Crossings          |                                                                                0 |
+| SLR Crossings             |                                                                                0 |
+| PBlocks                   |                                                                                0 |
+| High Fanout               |                                                                                8 |
+| Dont Touch                |                                                                                0 |
+| Mark Debug                |                                                                                0 |
+| Start Point Pin Primitive | FDRE/C                                                                           |
+| End Point Pin Primitive   | FDRE/D                                                                           |
+| Start Point Pin           | ab_reg[69]/C                                                                     |
+| End Point Pin             | AB_reg[7]/D                                                                      |
++---------------------------+----------------------------------------------------------------------------------+
+* Bounding box calculated as % of dimensions for the target device (188, 300)
+
+
+2. Logic Level Distribution
+---------------------------
+
++-----------------+-------------+-----+----+----+-----+-----+-----+----+----+----+----+----+----+
+| End Point Clock | Requirement |  0  |  1 |  2 |  3  |  4  |  5  |  6 |  7 |  8 | 12 | 13 | 14 |
++-----------------+-------------+-----+----+----+-----+-----+-----+----+----+----+----+----+----+
+| sys_clk_pin     | 10.000ns    | 130 | 47 | 75 | 254 | 146 | 183 | 52 | 47 | 18 | 34 |  5 |  9 |
++-----------------+-------------+-----+----+----+-----+-----+-----+----+----+----+----+----+----+
+* Columns represent the logic levels per end point clock
+** Distribution is for top worst 1000 paths
+
+

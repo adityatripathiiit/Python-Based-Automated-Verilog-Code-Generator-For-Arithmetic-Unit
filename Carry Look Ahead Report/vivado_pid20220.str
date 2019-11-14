@@ -1,0 +1,140 @@
+/*
+
+Xilinx Vivado v2019.1 (64-bit) [Major: 2019, Minor: 1]
+SW Build: 2552052 on Fri May 24 14:49:42 MDT 2019
+IP Build: 2548770 on Fri May 24 18:01:18 MDT 2019
+
+Process ID (PID): 20220
+License: Customer
+
+Current time: 	Mon Nov 04 13:36:18 IST 2019
+Time zone: 	India Standard Time (Asia/Calcutta)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 8
+
+Screen size: 1920x1080
+Screen resolution (DPI): 150
+Available screens: 1
+Available disk space: 776 GB
+Default font: family=Segoe UI,name=Segoe UI,style=plain,size=18
+
+Java version: 	9.0.4 64-bit
+Java home: 	C:/Xilinx/Vivado/2019.1/tps/win64/jre9.0.4
+Java executable location: 	C:/Xilinx/Vivado/2019.1/tps/win64/jre9.0.4/bin/java.exe
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	roopa
+User home directory: C:/Users/roopa
+User working directory: C:/Users/roopa/OneDrive/Desktop/week2_latest/week2/django_project/blog/Adder/vivado_run
+User country: 	IN
+User language: 	en
+User locale: 	en_IN
+
+RDI_BASEROOT: C:/Xilinx/Vivado
+HDI_APPROOT: C:/Xilinx/Vivado/2019.1
+RDI_DATADIR: C:/Xilinx/Vivado/2019.1/data
+RDI_BINDIR: C:/Xilinx/Vivado/2019.1/bin
+
+Vivado preferences file location: C:/Users/roopa/AppData/Roaming/Xilinx/Vivado/2019.1/vivado.xml
+Vivado preferences directory: C:/Users/roopa/AppData/Roaming/Xilinx/Vivado/2019.1/
+Vivado layouts directory: C:/Users/roopa/AppData/Roaming/Xilinx/Vivado/2019.1/layouts
+PlanAhead jar file location: 	C:/Xilinx/Vivado/2019.1/lib/classes/planAhead.jar
+Vivado log file location: 	C:/Users/roopa/OneDrive/Desktop/week2_latest/week2/django_project/blog/Adder/vivado_run/vivado.log
+Vivado journal file location: 	C:/Users/roopa/OneDrive/Desktop/week2_latest/week2/django_project/blog/Adder/vivado_run/vivado.jou
+Engine tmp dir: 	C:/Users/roopa/OneDrive/Desktop/week2_latest/week2/django_project/blog/Adder/vivado_run/.Xil/Vivado-20220-DESKTOP-6K5NDHQ
+
+Xilinx Environment Variables
+----------------------------
+XILINX: C:/Xilinx/Vivado/2019.1/ids_lite/ISE
+XILINX_DSP: C:/Xilinx/Vivado/2019.1/ids_lite/ISE
+XILINX_PLANAHEAD: C:/Xilinx/Vivado/2019.1
+XILINX_SDK: C:/Xilinx/SDK/2019.1
+XILINX_VIVADO: C:/Xilinx/Vivado/2019.1
+XILINX_VIVADO_HLS: C:/Xilinx/Vivado/2019.1
+
+
+GUI allocated memory:	128 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 663 MB
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// TclEventType: PROJECT_OPEN_DIALOG
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// by (cl):  Open Checkpoint : addNotify
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_checkpoint C:/Users/roopa/OneDrive/Desktop/week2_latest/week2/django_project/blog/Adder/vivado_run/post_synth.dcp 
+// Tcl Message: Command: open_checkpoint C:/Users/roopa/OneDrive/Desktop/week2_latest/week2/django_project/blog/Adder/vivado_run/post_synth.dcp  Starting open_checkpoint Task  Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.062 . Memory (MB): peak = 730.730 ; gain = 1.035 
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// HMemoryUtils.trashcanNow. Engine heap size: 669 MB. GUI used memory: 53 MB. Current time: 11/4/19, 1:36:20 PM IST
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 93 MB (+94713kb) [00:00:15]
+// [Engine Memory]: 709 MB (+592177kb) [00:00:15]
+// [GUI Memory]: 105 MB (+7703kb) [00:00:15]
+// WARNING: HEventQueue.dispatchEvent() is taking  2647 ms.
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.1/data/ip'. 
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 1,027 MB. GUI used memory: 53 MB. Current time: 11/4/19, 1:36:33 PM IST
+// [Engine Memory]: 1,027 MB (+295824kb) [00:00:27]
+// [Engine Memory]: 1,149 MB (+74098kb) [00:00:28]
+// Xgd.load filename: C:/Xilinx/Vivado/2019.1/data/parts/xilinx/artix7/devint/artix7/xc7a35t/xc7a35t.xgd; ZipEntry: xc7a35t_detail.xgd elapsed time: 0.7s
+// TclEventType: DESIGN_NEW
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Device: addNotify
+// [GUI Memory]: 125 MB (+15669kb) [00:00:30]
+// DeviceView Instantiated
+// WARNING: HEventQueue.dispatchEvent() is taking  2547 ms.
+// TclEventType: CURR_DESIGN_SET
+// TclEventType: PROJ_DESIGN_MODE_SET
+// Tcl Message: INFO: [Device 21-403] Loading part xc7a35tcpg236-1 INFO: [Netlist 29-17] Analyzing 97 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds 
+// Tcl Message: INFO: [Project 1-479] Netlist was created with Vivado 2019.1 INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1065.758 ; gain = 0.000 
+// Tcl Message: INFO: [Project 1-111] Unisim Transformation Summary: No Unisim elements were transformed.  
+// TclEventType: PROJ_DESIGN_MODE_SET
+// TclEventType: PROJECT_DASHBOARD_GADGET_DELETE
+// TclEventType: PROJ_DESIGN_MODE_SET
+// TclEventType: DESIGN_MODE_CHANGE
+// Device view-level: 0.0
+// Tcl Message: INFO: [Project 1-604] Checkpoint was created with Vivado v2019.1 (64-bit) build 2552052 
+// Tcl Message: open_checkpoint: Time (s): cpu = 00:00:34 ; elapsed = 00:00:22 . Memory (MB): peak = 1234.039 ; gain = 522.141 
+// Project name: project_post_synth; location: C:/Users/roopa/OneDrive/Desktop/week2_latest/week2/django_project/blog/Adder/vivado_run; part: xc7a35tcpg236-1
+dismissDialog("Open Checkpoint"); // by (cl)
+// RouteApi::initDelayMediator elapsed time: 10.2s
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// HMemoryUtils.trashcanNow. Engine heap size: 1,560 MB. GUI used memory: 81 MB. Current time: 11/4/19, 1:36:50 PM IST
+// [Engine Memory]: 1,562 MB (+372590kb) [00:02:17]
+// Elapsed time: 129 seconds
+selectMenu(RDIResource.MainWinMenuMgr_LAYOUT, "Layout"); // Z (q, cl)
+dismissMenu(RDIResource.MainWinMenuMgr_LAYOUT, "Layout"); // Z (q, cl)
+// Elapsed time: 10 seconds
+selectTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[top]", 0, true); // bd (O, cl) - Node
+selectTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[top]", 0, true, false, false, false, false, true); // bd (O, cl) - Double Click - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_DEFINITION
+selectCodeEditor("top.v", 249, 164); // cl (w, cl)

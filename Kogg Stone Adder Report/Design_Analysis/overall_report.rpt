@@ -1,0 +1,65 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Mon Nov  4 14:20:05 2019
+| Host         : Dhyey running 64-bit major release  (build 9200)
+| Command      : report_design_analysis -file ./vivado_run/Design_Analysis/overall_report.rpt
+| Design       : top
+| Device       : xc7a35t
+| Design State : Routed
+----------------------------------------------------------------------------------------------
+
+Report Design Analysis
+
+Table of Contents
+-----------------
+1. Setup Path Characteristics 1-1
+2. Logic Level Distribution
+
+1. Setup Path Characteristics 1-1
+---------------------------------
+
++---------------------------+-----------------------------------------+
+|      Characteristics      |                 Path #1                 |
++---------------------------+-----------------------------------------+
+| Requirement               |                                  10.000 |
+| Path Delay                |                                   7.390 |
+| Logic Delay               | 1.393(19%)                              |
+| Net Delay                 | 5.997(81%)                              |
+| Clock Skew                |                                  -0.031 |
+| Slack                     |                                   2.020 |
+| Clock Relationship        | Safely Timed                            |
+| Logic Levels              |                                       6 |
+| Routes                    |                                       7 |
+| Logical Path              | FDRE LUT4 LUT5 LUT4 LUT6 LUT6 LUT6 FDRE |
+| Start Point Clock         | sys_clk_pin                             |
+| End Point Clock           | sys_clk_pin                             |
+| DSP Block                 | None                                    |
+| BRAM                      | None                                    |
+| IO Crossings              |                                       0 |
+| Config Crossings          |                                       0 |
+| SLR Crossings             |                                       0 |
+| PBlocks                   |                                       0 |
+| High Fanout               |                                     165 |
+| Dont Touch                |                                       0 |
+| Mark Debug                |                                       0 |
+| Start Point Pin Primitive | FDRE/C                                  |
+| End Point Pin Primitive   | FDRE/R                                  |
+| Start Point Pin           | counteruart_reg[30]/C                   |
+| End Point Pin             | countled_reg[20]/R                      |
++---------------------------+-----------------------------------------+
+* Bounding box calculated as % of dimensions for the target device (188, 300)
+
+
+2. Logic Level Distribution
+---------------------------
+
++-----------------+-------------+-----+----+-----+-----+-----+-----+----+----+----+---+----+
+| End Point Clock | Requirement |  0  |  1 |  2  |  3  |  4  |  5  |  6 |  7 |  8 | 9 | 11 |
++-----------------+-------------+-----+----+-----+-----+-----+-----+----+----+----+---+----+
+| sys_clk_pin     | 10.000ns    | 130 | 48 | 105 | 221 | 133 | 185 | 69 | 54 | 19 | 3 | 33 |
++-----------------+-------------+-----+----+-----+-----+-----+-----+----+----+----+---+----+
+* Columns represent the logic levels per end point clock
+** Distribution is for top worst 1000 paths
+
+
