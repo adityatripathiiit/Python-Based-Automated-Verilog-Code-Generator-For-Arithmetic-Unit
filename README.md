@@ -1,5 +1,5 @@
 # Python-Based-Automated-Verilog-Code-Generator-For-Arithmetic-Unit
-This Project has been done under prof. Joycee Mekie @ IIT Gandhinagar. The project contains tools to generate codes and implementation of arithmetic operations on a FPGA. 
+This Project has been done under the mentorship of prof. Joycee Mekie @ IIT Gandhinagar. The project contains tools to generate codes and implementation of arithmetic operations on a FPGA. 
 
 Step 1: Open the command prompt and start the server by the command "python manage.py runserver".
 ADD PHOTOS
@@ -37,7 +37,7 @@ Week 4:
 1. Restoring Array divider:
 It divides two unsigned integers, returning the quotient and remainder. As compared to the other division algorithms, this algorithm is rather slower and closely resembles the division algorithm done by hand. The division follows a fixed algorithm. 
 In the first step, the registers are initialized as follows: A: Dividend, B: Divisor, C: 0 and, N= number of bits in the dividend.
-The second step involves shifting right the contents of CA as if they are a single unit. Now, B is subtracted from C and the result is stored in C.
+The second step involves shifting right the contents of CA as if they are a single unit. In the third step, B is subtracted from C and the result is stored in C. In the fourth step, the MSB of C is observed. If it is 1(or 0), then the least significant bit of A is set to 0(or 1). Also, the contents of C is restored with the value that was before the subtraction operation. The next step involves decrementing the value of counter N. If the value of N becomes 0, then the loop is discontinued, otherwise the above steps (from the second step) is repeated. The register A contains the quotient and C contains the remainder. 
 
 
 2. Booth multiplier: 
