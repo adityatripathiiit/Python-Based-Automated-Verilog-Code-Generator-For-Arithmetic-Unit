@@ -38,6 +38,8 @@ Week 4:
 It divides two unsigned integers, returning the quotient and remainder. As compared to the other division algorithms, this algorithm is rather slower and closely resembles the division algorithm done by hand. The division follows a fixed algorithm. 
 In the first step, the registers are initialized as follows: A: Dividend, B: Divisor, C: 0 and, N= number of bits in the dividend.
 The second step involves shifting right the contents of CA as if they are a single unit. In the third step, B is subtracted from C and the result is stored in C. In the fourth step, the MSB of C is observed. If it is 1(or 0), then the least significant bit of A is set to 0(or 1). Also, the contents of C is restored with the value that was before the subtraction operation. The next step involves decrementing the value of counter N. If the value of N becomes 0, then the loop is discontinued, otherwise the above steps (from the second step) is repeated. The register A contains the quotient and C contains the remainder. 
+The above steps are done in the "sub" module of the generated code of the verilog. It is done becuase the behavioral code is directly converted to structral code by increasing the space complexity from O(n) to O(n^2).
+This module is called repeatedly so that the division algorithm can be performed. 
 
 
 2. Booth multiplier: 
