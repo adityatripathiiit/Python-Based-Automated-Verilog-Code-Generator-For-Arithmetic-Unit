@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date             : Thu Nov 14 12:23:48 2019
+| Date             : Sat Nov 16 02:29:33 2019
 | Host             : ADITYA-PC running 64-bit major release  (build 9200)
 | Command          : report_power -file ./vivado_run/Power_Analysis/post_route_power.rpt
 | Design           : top
@@ -52,14 +52,14 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.005 |        3 |       --- |             --- |
-| Slice Logic    |     0.089 |    10595 |       --- |             --- |
-|   LUT as Logic |     0.083 |     6408 |     20800 |           30.81 |
-|   CARRY4       |     0.006 |     1096 |      8150 |           13.45 |
-|   Register     |    <0.001 |      938 |     41600 |            2.25 |
+| Clocks         |     0.004 |        3 |       --- |             --- |
+| Slice Logic    |     0.093 |     7148 |       --- |             --- |
+|   LUT as Logic |     0.093 |     6429 |     20800 |           30.91 |
+|   CARRY4       |    <0.001 |       72 |      8150 |            0.88 |
+|   Register     |    <0.001 |      428 |     41600 |            1.03 |
 |   F7/F8 Muxes  |    <0.001 |       48 |     32600 |            0.15 |
-|   Others       |     0.000 |       12 |       --- |             --- |
-| Signals        |     0.139 |     8308 |       --- |             --- |
+|   Others       |     0.000 |       10 |       --- |             --- |
+| Signals        |     0.137 |     7057 |       --- |             --- |
 | I/O            |     0.028 |       35 |       106 |           33.02 |
 | Static Power   |     0.072 |          |           |                 |
 | Total          |     0.334 |          |           |                 |
@@ -138,11 +138,10 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+-------------------+-----------+
-| Name              | Power (W) |
-+-------------------+-----------+
-| top               |     0.262 |
-|   nolabel_line297 |     0.227 |
-+-------------------+-----------+
++------+-----------+
+| Name | Power (W) |
++------+-----------+
+| top  |     0.262 |
++------+-----------+
 
 
