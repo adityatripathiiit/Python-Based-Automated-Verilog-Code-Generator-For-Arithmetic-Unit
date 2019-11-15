@@ -41,6 +41,5 @@ The second step involves shifting right the contents of CA as if they are a sing
 The above steps are done in the "sub" module of the generated code of the verilog. It is done becuase the behavioral code is directly converted to structral code by increasing the space complexity from O(n) to O(n^2).
 This module is called repeatedly so that the division algorithm can be performed. 
 
-
 2. Booth multiplier: 
 It multiplies two signed binary numbers in 2’s complement form. The algorithm proceeds by comparing the least significant of the multiplier, and another dummy register, initialised with the value zero. For the various cases, shifting operations are performed and the dummy register is updated by the additions or subtractions as required.
