@@ -259,7 +259,7 @@ reg [2:0] temptemp=0;
 clock_divider a(clk,refreshclk);
 refreshcounter b(refreshclk,rcounter);
 anode_control c(rcounter,an);
-{{modulename}}(clk,ab[127:64],ab[63:0],m[63:0],m[127:64]);
+{{modulename}}(ab[127:64],ab[63:0],m[63:0],m[127:64]);
 BCD_control e(AB[3:0],AB[7:4],AB[11:8],AB[15:12],rcounter,digit);
 BCD_to_cathodes f(digit,seg);
 

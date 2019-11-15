@@ -28,6 +28,7 @@ template_mux = env.get_template('mux')
 template_divider = env.get_template('divider')
 template_divider_structural_final = env.get_template('divider_structural_final')
 template_booth = env.get_template('booth_init')
+template_top_divider_struct = env.get_template('top_divider_struct.txt')
 
 def file_dump(flname, content):
     with open(flname+'.v', 'w') as fl:
@@ -48,8 +49,8 @@ def divider(n,modulename,BS):
         file_dump_divider('top',code)
         file_dump_divider(modulename,code_divider)
         return
-    code=template_top_divider.render(n=n,modulename=modulename)
     code_divider=template_divider_structural_final.render(n=n,modulename=modulename)
+    code=template_top_divider_struct.render(module=code_divider,n=n,modulename=modulename)
     file_dump_divider('top',code)
     file_dump_divider(modulename,code_divider)
 def booth(n,modulename,BS):
@@ -58,15 +59,12 @@ def booth(n,modulename,BS):
         file_dump_top(modulename,code)
         testbench(n,modulename)
         top = templates_global_top.render(module=code,modulename= modulename)
-        
         file_dump_top('top',top)
-
         return
     code=template_s_booth.render(modulename=modulename,n=n)
     top = templates_global_top.render(module=code,modulename= modulename)
     file_dump_top(modulename,code)
     file_dump_top('top',top)
-    
     testbench(n,modulename)
 
 
@@ -270,7 +268,7 @@ def testbench_divider_struct(n,Modulename):
     test += Modulename+ " inst (.Dividend(Dividend),.Divisor(Divisor),.Quotient(Quotient),.Remainder(Remainder));\n"
 
     test+='initial begin\n'
-    test+='$monitor("Quotient=%d Remainder=%d",Quotient,Remainder);\n'
+    test+='$monitor("Dividend = %d Divisor = %d Quotient=%d Remainder=%d",Dividend,Divisor,Quotient,Remainder);\n'
     test+='     end\n'
     test += "endmodule\n"
     file_dump_divider('tb_'+Modulename, test)
@@ -496,7 +494,7 @@ def click42(request):
     print(42)
     BS = request.POST.get("BS")
     #print(N,Modulename)
-    booth(int(N),Modulename,BS)
+    booth(int(N),Modulename,"S")
     
 #   top_gen_adder(N,Modulename)
     execute = os.system('cd "./blog/Mult" & vivado -mode batch -source build.tcl')
