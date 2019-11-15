@@ -78,24 +78,27 @@ The generated code is structural and only has a combinational circuit.
  ##### Pre-processing: 
      It generates the carry and propagate signals for each of the bits in A and B. 
  ##### Carry look ahead network:
-   This step distinguishes Kogge Stone Adder from other types of adders. It makes use of ‘group propagate’ and ‘generate’ to          generate the carry bits.
+     This step distinguishes Kogge Stone Adder from other types of adders. It makes use of ‘group propagate’ and ‘generate’ to          generate the carry bits.
    ##### Post-processing: 
-   This step is concerned with the generation of the sum bits.
+     This step is concerned with the generation of the sum bits.
 
    #### Kogge Stone Adder makes use of the following two components:
   ##### Gray cell: 
-  This cell makes the ‘generate’ with the help of ‘group propagate’ and ‘group generate’ bits.
+     This cell makes the ‘generate’ with the help of ‘group propagate’ and ‘group generate’ bits.
 ##### Black cell: 
-This cell makes the ‘generate’ and ‘carry’ with the help of ‘group propagate’ and ‘group generate’ bits.
+     This cell makes the ‘generate’ and ‘carry’ with the help of ‘group propagate’ and ‘group generate’ bits.
 
-
-# gray cell and black cell to be explained by roopakji
+#### Black cells and Gray Cells
+* Black cell and gray cells are denoted by bcell and gcell in the jinja template. 
+* Both of them deals with the idea of propagate and generate signals. Propagate and generate signals are used to evaluate the sum and carry signals like in carry look ahead adder. 
+* In Kogge Stone adder the same generate and propagate signals are used in groups Combination of grouped propagte and generate signals are used in the form of black and grey cells. 
+* In black cell both group and propagate signals are generated. In grey cell only generate signals are genereated. Combination of black and grey cells are used strtucturally to form the layers of Kogge Stone Adder.
 
 ###  Carry look ahead adder:
-  Primarily, at each stage, a “generate” and a “propagate” bit is generated. The Propagate bit comprises of the XOR operation and the     Generate bit, the AND operation. For inputs of length, it takes O(log n) of computation time.
+    Primarily, at each stage, a “generate” and a “propagate” bit is generated. The Propagate bit comprises of the XOR operation and the     Generate bit, the AND operation. For inputs of length, it takes O(log n) of computation time.
 
 ### Carry select adder: 
-  It is a quite simple yet effective method to implement an adder. It computes the (n+1) bit sum of the two input arrays of length         n, with a gate level depth of O(√n). It basically consists of two ripple carry adder along with MUXes at each stage.
+     It is a quite simple yet effective method to implement an adder. It computes the (n+1) bit sum of the two input arrays of length         n, with a gate level depth of O(√n). It basically consists of two ripple carry adder along with MUXes at each stage.
 
 ## Week 3:
 ####
