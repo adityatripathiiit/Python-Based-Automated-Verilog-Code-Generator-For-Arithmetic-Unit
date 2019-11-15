@@ -28,16 +28,27 @@ Choose any of the adder or divider or multiplier and give the number of bits and
 ####
 #### Step 4: 
 ####
-Click on the button the implementation of the generated code starts on the vivado. For this, the path of the vivado.bat file should be in the environment variables. 
+* Click on the button, after clicking, the command prompt will start showing the implementation process. 
+* This process will take about 20-30 mintues, depending on the length of the code.The implementation will start on the FPGA(make sure that your FPGA is connected to your computer) of the generated code. 
+* For this, the path of the vivado.bat file should be in the environment variables. 
+  * The PC running the software should have Vivado 2018 or above version installed. 
 ###
-The PC running the software should have Vivado 2018 or above version installed. 
+
 ####
 #### Step 5: 
 ####
-Open the teraterm software and connect it to the basys 3 board.
+* Open the teraterm software and connect it to the basys 3 board.
+  * Teraterm is used to give input to basys 3. 
+  * The input is given in hexadecimal system. We can give 2 numbers of  N bits as input in the teraterm. 
+  * First 8 LED's on the FPGA will show the input and the button top button will be used to traverse throught the input. 
+####
+####
+   * The LED's will increament like a counter as the inputs are given. The right button will be used to show output and the top button        will again be used to traverse through the output bits.
 
+#####
+
+  * Since the inputs are given in hex system, the output is also in hex system. The output can be shown on a 7 segment hex display.         Note, the dot on the 7 segment display will show the mark of an MSB bit. 
 ###
-Teraterm is used to give input to basys 3. The input is given in hexadecimal system. We can give 2 numbers of 64 bits as input in the teraterm.
 
 The generated files can be seen in the respective folders of multipler, divider and adders.
 
@@ -49,7 +60,7 @@ Week 1:
 
 Week 2:
 1. Kogge Stone adder: 
-Like the carry-look ahead adder, it also produces Generate and Propagate bits at each stage, and it is also a parallel prefix adder. Only, the difference occurs in the pre processing step of the adder.
+Like the carry-look ahead adder, it also produces Generate and Propagate bits at each stage, and it is also a parallel prefix adder. Only, the difference occurs in the carry look ahead adder.
 
 # gray cell and black cell to be explained by roopakji
 
