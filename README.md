@@ -8,6 +8,13 @@ ADD PHOTOS
 Step 3: Choose any of the adder or divider or multiplier and give the number of bits and the name of the module as the input.
 Step 4: Click on the button, the implementation of the generated code starts on the vivado. For this, the path of the vivado.bat file should be in the environment variables.
 The PC running the software should have Vivado 2018 or above version installed. 
-Step 5: Open the software teraterm and connect it to the basys 3 board.
+Step 5: Open the teraterm software and connect it to the basys 3 board.
 Teraterm is used to give input to basys 3. The input is given in hexadecimal system. We can give 2 numbers of 64 bits as input in the teraterm.
 
+The generated files can be seen in the respective folders of multipler, divider and adders.
+
+The generated code is structural and only has a combinational circuit.
+
+Week 2:
+2. Carry look ahead adder:
+Primarily, at each stage, a “generate” and a “propagate” bit is generated. The Propagate bit comprises of the XOR operation and the Generate bit, the AND operation. For inputs of length, it takes O(log n) of computation time
