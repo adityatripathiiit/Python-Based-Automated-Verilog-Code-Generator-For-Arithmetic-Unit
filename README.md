@@ -57,7 +57,7 @@ The generated code is structural and only has a combinational circuit.
 
 ## Week 1:
 
-     ![alt text](https://github.com/adityatripathiiit/Python-Based-Automated-Verilog-Code-Generator-For-Arithmetic-Unit/blob/master/screenshots/home.png)
+ ![alt text](https://github.com/adityatripathiiit/Python-Based-Automated-Verilog-Code-Generator-For-Arithmetic-Unit/blob/master/screenshots/home.png)
 ###  Array Multiplier: 
      
 
