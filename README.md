@@ -65,10 +65,10 @@ The generated code is structural and only has a combinational circuit.
  ####
 ###  Array Multiplier: 
    * The Array multiplier follows the 'shift and add' algorithm for obtaining the output. 
-     * Each bit starting from the LSB of multiplier is multiplied with each bit of the multiplicand (by using 'AND' operation for each bit. ). The partial products for each bit is generated. 
-     * Two stages of partial products are added using a 'Ripple Carry Adder'. 
-     * The next stage is shifted left by 1 bit and is padded with 0 for the next stages. 
-     * In this manner the partial products at each stages are added and the final multiplied output is obtained.
+   * Each bit starting from the LSB of multiplier is multiplied with each bit of the multiplicand (by using 'AND' operation for each bit. ). The partial products for each bit is generated. 
+   * Two stages of partial products are added using a 'Ripple Carry Adder'. 
+   * The next stage is shifted left by 1 bit and is padded with 0 for the next stages. 
+   * In this manner the partial products at each stages are added and the final multiplied output is obtained.
 
 ## Week 2:
 ####
@@ -77,20 +77,20 @@ The generated code is structural and only has a combinational circuit.
 ####
  ####
 ###  Kogge Stone adder: 
-  Like the carry-look ahead adder, it also produces Generate and Propagate bits at each stage, and it is also a parallel prefix adder.     Only, the difference occurs in the carry look ahead adder network.
+Like the carry-look ahead adder, it also produces Generate and Propagate bits at each stage, and it is also a parallel prefix adder.     Only, the difference occurs in the carry look ahead adder network.
   #### It has 3 stages:
  ##### Pre-processing: 
-     It generates the carry and propagate signals for each of the bits in A and B. 
+   It generates the carry and propagate signals for each of the bits in A and B. 
  ##### Carry look ahead network:
-     This step distinguishes Kogge Stone Adder from other types of adders. It makes use of ‘group propagate’ and ‘generate’ to          generate the carry bits.
+   This step distinguishes Kogge Stone Adder from other types of adders. It makes use of ‘group propagate’ and ‘generate’ to          generate the carry bits.
    ##### Post-processing: 
-     This step is concerned with the generation of the sum bits.
+  This step is concerned with the generation of the sum bits.
 
    #### Kogge Stone Adder makes use of the following two components:
   ##### Gray cell: 
-     This cell makes the ‘generate’ with the help of ‘group propagate’ and ‘group generate’ bits.
+   This cell makes the ‘generate’ with the help of ‘group propagate’ and ‘group generate’ bits.
 ##### Black cell: 
-     This cell makes the ‘generate’ and ‘carry’ with the help of ‘group propagate’ and ‘group generate’ bits.
+   This cell makes the ‘generate’ and ‘carry’ with the help of ‘group propagate’ and ‘group generate’ bits.
 
 #### Black cells and Gray Cells
 * Black cell and gray cells are denoted by bcell and gcell in the jinja template. 
