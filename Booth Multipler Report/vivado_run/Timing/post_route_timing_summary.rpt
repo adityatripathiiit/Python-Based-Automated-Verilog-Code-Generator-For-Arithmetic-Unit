@@ -1,0 +1,653 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Wed Nov 13 18:42:07 2019
+| Host         : ADITYA-PC running 64-bit major release  (build 9200)
+| Command      : report_timing_summary -file ./vivado_run/Timing/post_route_timing_summary.rpt
+| Design       : top
+| Device       : 7a35t-cpg236
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+-----------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock
+2. checking constant_clock
+3. checking pulse_width_clock
+4. checking unconstrained_internal_endpoints
+5. checking no_input_delay
+6. checking no_output_delay
+7. checking multiple_clock
+8. checking generated_clocks
+9. checking loops
+10. checking partial_input_delay
+11. checking partial_output_delay
+12. checking latch_loops
+
+1. checking no_clock
+--------------------
+ There are 2 register/latch pins with no clock driven by root clock pin: a/divided_clk_reg/Q (HIGH)
+
+ There are 4 register/latch pins with no clock driven by root clock pin: uut/rxshiftreg_reg[1]/Q (HIGH)
+
+ There are 4 register/latch pins with no clock driven by root clock pin: uut/rxshiftreg_reg[2]/Q (HIGH)
+
+ There are 4 register/latch pins with no clock driven by root clock pin: uut/rxshiftreg_reg[3]/Q (HIGH)
+
+ There are 4 register/latch pins with no clock driven by root clock pin: uut/rxshiftreg_reg[4]/Q (HIGH)
+
+ There are 4 register/latch pins with no clock driven by root clock pin: uut/rxshiftreg_reg[5]/Q (HIGH)
+
+ There are 4 register/latch pins with no clock driven by root clock pin: uut/rxshiftreg_reg[6]/Q (HIGH)
+
+ There are 4 register/latch pins with no clock driven by root clock pin: uut/rxshiftreg_reg[7]/Q (HIGH)
+
+ There are 4 register/latch pins with no clock driven by root clock pin: uut/rxshiftreg_reg[8]/Q (HIGH)
+
+
+2. checking constant_clock
+--------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock
+-----------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints
+--------------------------------------------
+ There are 7 pins that are not constrained for maximum delay. (HIGH)
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay
+--------------------------
+ There are 6 input ports with no input delay specified. (HIGH)
+
+ There are 0 input ports with no input delay but user has a false path constraint.
+
+
+6. checking no_output_delay
+---------------------------
+ There are 28 ports with no output delay specified. (HIGH)
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock
+--------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks
+----------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops
+-----------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay
+--------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay
+---------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops
+------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+   -141.156    -2511.744                    239                 2213        0.051        0.000                      0                 2213        4.500        0.000                       0                   812  
+
+
+Timing constraints are not met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock        Waveform(ns)       Period(ns)      Frequency(MHz)
+-----        ------------       ----------      --------------
+sys_clk_pin  {0.000 5.000}      10.000          100.000         
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+sys_clk_pin      -141.156    -2511.744                    239                 2213        0.051        0.000                      0                 2213        4.500        0.000                       0                   812  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  sys_clk_pin
+  To Clock:  sys_clk_pin
+
+Setup :          239  Failing Endpoints,  Worst Slack     -141.156ns,  Total Violation    -2511.744ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.051ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (VIOLATED) :        -141.156ns  (required time - arrival time)
+  Source:                 ab_reg[1]_replica/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            AB_reg[13]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        151.146ns  (logic 36.274ns (23.999%)  route 114.872ns (76.001%))
+  Logic Levels:           159  (LUT3=14 LUT4=3 LUT5=73 LUT6=67 MUXF7=1 MUXF8=1)
+  Clock Path Skew:        -0.039ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.776ns = ( 14.776 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.073ns
+    Clock Pessimism Removal (CPR):    0.258ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=811, routed)         1.552     5.073    clk_IBUF_BUFG
+    SLICE_X38Y57         FDRE                                         r  ab_reg[1]_replica/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X38Y57         FDRE (Prop_fdre_C_Q)         0.518     5.591 r  ab_reg[1]_replica/Q
+                         net (fo=30, routed)          0.949     6.540    ab_reg_n_0_[1]_repN
+    SLICE_X41Y59         LUT5 (Prop_lut5_I2_O)        0.124     6.664 r  AB[4]_i_77/O
+                         net (fo=1, routed)           0.665     7.330    nolabel_line838/step1/myadd/q_2
+    SLICE_X41Y59         LUT6 (Prop_lut6_I5_O)        0.124     7.454 r  AB[4]_i_52/O
+                         net (fo=3, routed)           0.479     7.933    nolabel_line838/A2[2]
+    SLICE_X41Y59         LUT6 (Prop_lut6_I5_O)        0.124     8.057 r  AB[5]_i_75/O
+                         net (fo=3, routed)           0.966     9.023    nolabel_line838/step2/mysub/q_2
+    SLICE_X40Y57         LUT6 (Prop_lut6_I2_O)        0.124     9.147 r  AB[5]_i_52/O
+                         net (fo=3, routed)           0.748     9.895    nolabel_line838/A3[2]
+    SLICE_X41Y56         LUT6 (Prop_lut6_I4_O)        0.124    10.019 r  AB[5]_i_33/O
+                         net (fo=3, routed)           0.583    10.602    nolabel_line838/A4[1]
+    SLICE_X41Y55         LUT4 (Prop_lut4_I3_O)        0.150    10.752 r  AB[6]_i_53/O
+                         net (fo=2, routed)           0.449    11.201    nolabel_line838/step4/myadd/q_1
+    SLICE_X41Y55         LUT6 (Prop_lut6_I5_O)        0.326    11.527 r  AB[6]_i_33/O
+                         net (fo=3, routed)           0.719    12.245    nolabel_line838/A5[1]
+    SLICE_X40Y55         LUT4 (Prop_lut4_I3_O)        0.152    12.397 r  AB[7]_i_53/O
+                         net (fo=2, routed)           0.744    13.141    nolabel_line838/step5/myadd/q_1
+    SLICE_X40Y54         LUT6 (Prop_lut6_I5_O)        0.332    13.473 r  AB[7]_i_33/O
+                         net (fo=3, routed)           0.495    13.969    nolabel_line838/A6[1]
+    SLICE_X40Y54         LUT4 (Prop_lut4_I3_O)        0.118    14.087 r  AB[8]_i_53/O
+                         net (fo=2, routed)           0.986    15.073    nolabel_line838/step6/myadd/q_1
+    SLICE_X39Y57         LUT3 (Prop_lut3_I1_O)        0.354    15.427 r  AB[9]_i_77/O
+                         net (fo=3, routed)           0.801    16.227    nolabel_line838/step6/myadd/q_2
+    SLICE_X41Y57         LUT5 (Prop_lut5_I2_O)        0.358    16.585 r  AB[11]_i_118/O
+                         net (fo=3, routed)           0.826    17.411    nolabel_line838/step6/myadd/q_4
+    SLICE_X39Y57         LUT5 (Prop_lut5_I2_O)        0.354    17.765 r  AB[13]_i_154/O
+                         net (fo=3, routed)           1.029    18.794    nolabel_line838/step6/myadd/q_6
+    SLICE_X39Y54         LUT5 (Prop_lut5_I2_O)        0.352    19.146 r  AB[15]_i_221/O
+                         net (fo=3, routed)           0.773    19.919    nolabel_line838/step6/myadd/q_8
+    SLICE_X34Y54         LUT6 (Prop_lut6_I3_O)        0.332    20.251 r  AB[1]_i_237_rewire/O
+                         net (fo=3, routed)           0.786    21.037    nolabel_line838/step6/myadd/q_10
+    SLICE_X37Y54         LUT6 (Prop_lut6_I5_O)        0.124    21.161 r  AB[1]_i_215/O
+                         net (fo=3, routed)           0.830    21.991    nolabel_line838/A7[10]
+    SLICE_X38Y53         LUT5 (Prop_lut5_I4_O)        0.146    22.137 r  AB[2]_i_237/O
+                         net (fo=3, routed)           0.861    22.998    nolabel_line838/step7/myadd/q_10
+    SLICE_X38Y53         LUT5 (Prop_lut5_I2_O)        0.356    23.354 r  AB[4]_i_277/O
+                         net (fo=3, routed)           0.442    23.796    nolabel_line838/step7/myadd/q_12
+    SLICE_X38Y52         LUT6 (Prop_lut6_I5_O)        0.348    24.144 r  AB[4]_i_258/O
+                         net (fo=3, routed)           0.877    25.021    nolabel_line838/A8[12]
+    SLICE_X43Y52         LUT5 (Prop_lut5_I4_O)        0.150    25.171 r  AB[5]_i_276/O
+                         net (fo=3, routed)           0.988    26.159    nolabel_line838/step8/mysub/q_12
+    SLICE_X45Y52         LUT6 (Prop_lut6_I2_O)        0.326    26.485 r  AB[5]_i_259/O
+                         net (fo=3, routed)           0.827    27.312    nolabel_line838/A9[12]
+    SLICE_X46Y52         LUT5 (Prop_lut5_I4_O)        0.150    27.462 r  AB[6]_i_278/O
+                         net (fo=3, routed)           0.865    28.328    nolabel_line838/step9/myadd/q_12
+    SLICE_X48Y53         LUT5 (Prop_lut5_I2_O)        0.374    28.702 r  AB[8]_i_313/O
+                         net (fo=3, routed)           0.596    29.298    nolabel_line838/step9/myadd/q_14
+    SLICE_X49Y53         LUT3 (Prop_lut3_I1_O)        0.358    29.656 r  AB[9]_i_331/O
+                         net (fo=1, routed)           0.499    30.154    nolabel_line838/step9/myadd/q_15
+    SLICE_X48Y53         LUT6 (Prop_lut6_I5_O)        0.332    30.486 r  AB[9]_i_312/O
+                         net (fo=5, routed)           0.855    31.341    nolabel_line838/A10[15]
+    SLICE_X50Y54         LUT5 (Prop_lut5_I0_O)        0.124    31.465 r  AB[11]_i_348/O
+                         net (fo=4, routed)           0.616    32.081    nolabel_line838/step10/mysub/q_16
+    SLICE_X50Y55         LUT6 (Prop_lut6_I2_O)        0.124    32.205 r  AB[11]_i_331/O
+                         net (fo=3, routed)           1.245    33.450    nolabel_line838/A11[16]
+    SLICE_X58Y54         LUT5 (Prop_lut5_I4_O)        0.152    33.602 r  AB[12]_i_349/O
+                         net (fo=3, routed)           0.757    34.359    nolabel_line838/step11/myadd/q_16
+    SLICE_X58Y53         LUT6 (Prop_lut6_I5_O)        0.332    34.691 r  AB[12]_i_330/O
+                         net (fo=3, routed)           0.821    35.512    nolabel_line838/A12[16]
+    SLICE_X58Y52         LUT5 (Prop_lut5_I4_O)        0.152    35.664 r  AB[13]_i_348/O
+                         net (fo=3, routed)           0.678    36.342    nolabel_line838/step12/myadd/q_16
+    SLICE_X60Y52         LUT6 (Prop_lut6_I5_O)        0.326    36.668 r  AB[13]_i_330/O
+                         net (fo=3, routed)           0.876    37.544    nolabel_line838/A13[16]
+    SLICE_X57Y57         LUT5 (Prop_lut5_I4_O)        0.124    37.668 r  AB[14]_i_343/O
+                         net (fo=3, routed)           1.099    38.767    nolabel_line838/step13/mysub/q_16
+    SLICE_X60Y59         LUT5 (Prop_lut5_I2_O)        0.124    38.891 r  AB[0]_i_379/O
+                         net (fo=3, routed)           1.015    39.906    nolabel_line838/step13/mysub/q_18
+    SLICE_X59Y60         LUT6 (Prop_lut6_I2_O)        0.124    40.030 r  AB[0]_i_365/O
+                         net (fo=3, routed)           1.010    41.040    nolabel_line838/A14[18]
+    SLICE_X56Y61         LUT5 (Prop_lut5_I4_O)        0.150    41.190 r  AB[1]_i_381/O
+                         net (fo=3, routed)           0.822    42.012    nolabel_line838/step14/mysub/q_18
+    SLICE_X55Y61         LUT6 (Prop_lut6_I2_O)        0.328    42.340 r  AB[1]_i_367/O
+                         net (fo=3, routed)           1.006    43.346    nolabel_line838/A15[18]
+    SLICE_X50Y61         LUT5 (Prop_lut5_I4_O)        0.152    43.498 r  AB[2]_i_383/O
+                         net (fo=3, routed)           0.468    43.966    nolabel_line838/step15/myadd/q_18
+    SLICE_X49Y61         LUT6 (Prop_lut6_I5_O)        0.348    44.314 r  AB[2]_i_367/O
+                         net (fo=3, routed)           0.444    44.758    nolabel_line838/A16[18]
+    SLICE_X48Y60         LUT5 (Prop_lut5_I4_O)        0.124    44.882 r  AB[3]_i_384/O
+                         net (fo=4, routed)           0.901    45.783    nolabel_line838/step16/mysub/q_18
+    SLICE_X50Y62         LUT6 (Prop_lut6_I2_O)        0.124    45.907 r  AB[3]_i_370/O
+                         net (fo=3, routed)           0.695    46.601    nolabel_line838/A17[18]
+    SLICE_X48Y63         LUT5 (Prop_lut5_I4_O)        0.153    46.754 r  AB[4]_i_389/O
+                         net (fo=3, routed)           0.997    47.752    nolabel_line838/step17/mysub/q_18
+    SLICE_X41Y64         LUT6 (Prop_lut6_I2_O)        0.327    48.079 r  AB[4]_i_372/O
+                         net (fo=3, routed)           0.992    49.071    nolabel_line838/A18[18]
+    SLICE_X34Y64         LUT5 (Prop_lut5_I4_O)        0.146    49.217 r  AB[5]_i_392/O
+                         net (fo=3, routed)           1.251    50.468    nolabel_line838/step18/myadd/q_18
+    SLICE_X48Y64         LUT3 (Prop_lut3_I1_O)        0.328    50.796 r  AB[6]_i_410/O
+                         net (fo=1, routed)           0.303    51.100    nolabel_line838/step18/myadd/q_19
+    SLICE_X48Y65         LUT6 (Prop_lut6_I5_O)        0.124    51.224 r  AB[6]_i_391/O
+                         net (fo=6, routed)           1.080    52.303    nolabel_line838/A19[19]
+    SLICE_X37Y65         LUT5 (Prop_lut5_I1_O)        0.152    52.455 r  AB[8]_i_427/O
+                         net (fo=3, routed)           0.747    53.203    nolabel_line838/step19/myadd/q_20
+    SLICE_X34Y65         LUT6 (Prop_lut6_I5_O)        0.332    53.535 r  AB[8]_i_408/O
+                         net (fo=5, routed)           0.612    54.146    nolabel_line838/A20[20]
+    SLICE_X35Y67         LUT5 (Prop_lut5_I4_O)        0.150    54.296 r  AB[9]_i_426/O
+                         net (fo=3, routed)           0.961    55.257    nolabel_line838/step20/myadd/q_20
+    SLICE_X38Y67         LUT3 (Prop_lut3_I1_O)        0.332    55.589 r  AB[10]_i_439/O
+                         net (fo=1, routed)           0.655    56.244    nolabel_line838/step20/myadd/q_21
+    SLICE_X41Y68         LUT6 (Prop_lut6_I5_O)        0.124    56.368 r  AB[10]_i_423/O
+                         net (fo=5, routed)           0.599    56.967    nolabel_line838/A21[21]
+    SLICE_X37Y68         LUT6 (Prop_lut6_I4_O)        0.124    57.091 r  AB[10]_i_408/O
+                         net (fo=3, routed)           0.795    57.886    nolabel_line838/A22[20]
+    SLICE_X35Y69         LUT5 (Prop_lut5_I4_O)        0.150    58.036 r  AB[11]_i_419/O
+                         net (fo=3, routed)           0.725    58.761    nolabel_line838/step22/mysub/q_20
+    SLICE_X36Y69         LUT6 (Prop_lut6_I2_O)        0.326    59.087 r  AB[11]_i_405/O
+                         net (fo=3, routed)           0.817    59.903    nolabel_line838/A23[20]
+    SLICE_X36Y68         LUT5 (Prop_lut5_I4_O)        0.152    60.055 r  AB[12]_i_415/O
+                         net (fo=3, routed)           0.673    60.728    nolabel_line838/step23/mysub/q_20
+    SLICE_X36Y68         LUT6 (Prop_lut6_I2_O)        0.326    61.054 r  AB[12]_i_401/O
+                         net (fo=3, routed)           0.848    61.902    nolabel_line838/A24[20]
+    SLICE_X36Y67         LUT5 (Prop_lut5_I4_O)        0.150    62.052 r  AB[13]_i_412/O
+                         net (fo=3, routed)           0.675    62.727    nolabel_line838/step24/mysub/q_20
+    SLICE_X37Y67         LUT6 (Prop_lut6_I2_O)        0.326    63.053 r  AB[13]_i_398/O
+                         net (fo=3, routed)           0.731    63.784    nolabel_line838/A25[20]
+    SLICE_X37Y66         LUT5 (Prop_lut5_I4_O)        0.150    63.934 r  AB[14]_i_411/O
+                         net (fo=3, routed)           0.600    64.534    nolabel_line838/step25/myadd/q_20
+    SLICE_X38Y66         LUT6 (Prop_lut6_I5_O)        0.332    64.866 r  AB[14]_i_395/O
+                         net (fo=3, routed)           0.838    65.704    nolabel_line838/A26[20]
+    SLICE_X40Y66         LUT5 (Prop_lut5_I4_O)        0.152    65.856 r  AB[15]_i_474/O
+                         net (fo=3, routed)           0.775    66.631    nolabel_line838/step26/mysub/q_20
+    SLICE_X42Y68         LUT6 (Prop_lut6_I2_O)        0.332    66.963 r  AB[15]_i_457/O
+                         net (fo=3, routed)           0.804    67.767    nolabel_line838/A27[20]
+    SLICE_X39Y68         LUT5 (Prop_lut5_I4_O)        0.124    67.891 r  AB[0]_i_406/O
+                         net (fo=3, routed)           0.582    68.473    nolabel_line838/step27/mysub/q_20
+    SLICE_X39Y68         LUT6 (Prop_lut6_I2_O)        0.124    68.597 r  AB[0]_i_392/O
+                         net (fo=3, routed)           0.883    69.480    nolabel_line838/A28[20]
+    SLICE_X37Y71         LUT5 (Prop_lut5_I4_O)        0.150    69.630 r  AB[1]_i_408/O
+                         net (fo=3, routed)           0.862    70.492    nolabel_line838/step28/mysub/q_20
+    SLICE_X38Y72         LUT5 (Prop_lut5_I2_O)        0.350    70.842 r  AB[3]_i_441/O
+                         net (fo=3, routed)           0.500    71.342    nolabel_line838/step28/mysub/q_22
+    SLICE_X38Y72         LUT6 (Prop_lut6_I2_O)        0.328    71.670 r  AB[3]_i_427/O
+                         net (fo=3, routed)           0.817    72.487    nolabel_line838/A29[22]
+    SLICE_X39Y73         LUT5 (Prop_lut5_I4_O)        0.152    72.639 r  AB[4]_i_447/O
+                         net (fo=3, routed)           0.520    73.159    nolabel_line838/step29/mysub/q_22
+    SLICE_X39Y73         LUT6 (Prop_lut6_I2_O)        0.332    73.491 r  AB[4]_i_433/O
+                         net (fo=3, routed)           1.016    74.508    nolabel_line838/A30[22]
+    SLICE_X39Y75         LUT5 (Prop_lut5_I4_O)        0.152    74.660 r  AB[5]_i_451/O
+                         net (fo=3, routed)           0.645    75.304    nolabel_line838/step30/mysub/q_22
+    SLICE_X40Y74         LUT6 (Prop_lut6_I2_O)        0.326    75.630 r  AB[5]_i_437/O
+                         net (fo=3, routed)           0.670    76.300    nolabel_line838/A31[22]
+    SLICE_X40Y74         LUT5 (Prop_lut5_I4_O)        0.150    76.450 r  AB[6]_i_453/O
+                         net (fo=3, routed)           0.612    77.062    nolabel_line838/step31/mysub/q_22
+    SLICE_X41Y75         LUT6 (Prop_lut6_I2_O)        0.326    77.388 r  AB[6]_i_439/O
+                         net (fo=3, routed)           0.681    78.069    nolabel_line838/A32[22]
+    SLICE_X40Y75         LUT5 (Prop_lut5_I4_O)        0.152    78.221 r  AB[7]_i_456/O
+                         net (fo=3, routed)           0.585    78.807    nolabel_line838/step32/myadd/q_22
+    SLICE_X41Y77         LUT6 (Prop_lut6_I5_O)        0.332    79.139 r  AB[7]_i_441/O
+                         net (fo=3, routed)           0.673    79.812    nolabel_line838/A33[22]
+    SLICE_X41Y77         LUT5 (Prop_lut5_I4_O)        0.152    79.964 r  AB[8]_i_454/O
+                         net (fo=3, routed)           0.782    80.745    nolabel_line838/step33/mysub/q_22
+    SLICE_X41Y78         LUT6 (Prop_lut6_I2_O)        0.332    81.077 r  AB[8]_i_440/O
+                         net (fo=3, routed)           0.883    81.960    nolabel_line838/A34[22]
+    SLICE_X38Y78         LUT5 (Prop_lut5_I4_O)        0.150    82.110 r  AB[9]_i_451/O
+                         net (fo=3, routed)           0.777    82.887    nolabel_line838/step34/mysub/q_22
+    SLICE_X39Y79         LUT3 (Prop_lut3_I0_O)        0.348    83.235 r  AB[10]_i_464/O
+                         net (fo=1, routed)           0.570    83.805    nolabel_line838/step34/mysub/q_23
+    SLICE_X39Y79         LUT6 (Prop_lut6_I2_O)        0.124    83.929 r  AB[10]_i_450/O
+                         net (fo=5, routed)           0.478    84.407    nolabel_line838/A35[23]
+    SLICE_X40Y81         LUT6 (Prop_lut6_I4_O)        0.124    84.531 r  AB[10]_i_435/O
+                         net (fo=3, routed)           0.670    85.201    nolabel_line838/A36[22]
+    SLICE_X40Y82         LUT5 (Prop_lut5_I4_O)        0.150    85.351 r  AB[11]_i_446/O
+                         net (fo=3, routed)           0.592    85.943    nolabel_line838/step36/mysub/q_22
+    SLICE_X40Y83         LUT6 (Prop_lut6_I2_O)        0.326    86.269 r  AB[11]_i_432/O
+                         net (fo=3, routed)           0.659    86.928    nolabel_line838/A37[22]
+    SLICE_X40Y83         LUT5 (Prop_lut5_I4_O)        0.150    87.078 r  AB[12]_i_442/O
+                         net (fo=3, routed)           0.606    87.684    nolabel_line838/step37/mysub/q_22
+    SLICE_X41Y84         LUT6 (Prop_lut6_I2_O)        0.326    88.010 r  AB[12]_i_428/O
+                         net (fo=3, routed)           0.843    88.853    nolabel_line838/A38[22]
+    SLICE_X38Y84         LUT5 (Prop_lut5_I4_O)        0.152    89.005 r  AB[13]_i_441/O
+                         net (fo=3, routed)           0.604    89.609    nolabel_line838/step38/myadd/q_22
+    SLICE_X36Y84         LUT6 (Prop_lut6_I5_O)        0.348    89.957 r  AB[13]_i_425/O
+                         net (fo=3, routed)           0.474    90.431    nolabel_line838/A39[22]
+    SLICE_X37Y85         LUT5 (Prop_lut5_I4_O)        0.118    90.549 r  AB[14]_i_436/O
+                         net (fo=3, routed)           0.853    91.401    nolabel_line838/step39/mysub/q_22
+    SLICE_X34Y85         LUT6 (Prop_lut6_I2_O)        0.326    91.727 r  AB[14]_i_422/O
+                         net (fo=3, routed)           0.703    92.430    nolabel_line838/A40[22]
+    SLICE_X34Y85         LUT5 (Prop_lut5_I4_O)        0.150    92.580 r  AB[15]_i_507/O
+                         net (fo=3, routed)           0.591    93.172    nolabel_line838/step40/mysub/q_22
+    SLICE_X35Y87         LUT6 (Prop_lut6_I2_O)        0.328    93.500 r  AB[15]_i_490/O
+                         net (fo=3, routed)           0.947    94.447    nolabel_line838/A41[22]
+    SLICE_X33Y89         LUT5 (Prop_lut5_I4_O)        0.124    94.571 r  AB[0]_i_432/O
+                         net (fo=4, routed)           0.825    95.396    nolabel_line838/step41/myadd/q_22
+    SLICE_X33Y89         LUT5 (Prop_lut5_I2_O)        0.150    95.546 r  AB[2]_i_434/O
+                         net (fo=3, routed)           0.829    96.375    nolabel_line838/step41/myadd/q_24
+    SLICE_X34Y88         LUT5 (Prop_lut5_I2_O)        0.356    96.731 r  AB[4]_i_443/O
+                         net (fo=3, routed)           0.747    97.477    nolabel_line838/step41/myadd/q_26
+    SLICE_X32Y90         LUT6 (Prop_lut6_I5_O)        0.328    97.805 r  AB[4]_i_427/O
+                         net (fo=3, routed)           0.596    98.401    nolabel_line838/A42[26]
+    SLICE_X31Y90         LUT5 (Prop_lut5_I4_O)        0.118    98.519 r  AB[5]_i_432/O
+                         net (fo=3, routed)           0.636    99.155    nolabel_line838/step42/myadd/q_26
+    SLICE_X30Y91         LUT6 (Prop_lut6_I5_O)        0.326    99.481 r  AB[5]_i_415/O
+                         net (fo=3, routed)           1.014   100.496    nolabel_line838/A43[26]
+    SLICE_X30Y95         LUT5 (Prop_lut5_I4_O)        0.148   100.644 r  AB[6]_i_414/O
+                         net (fo=3, routed)           0.485   101.128    nolabel_line838/step43/mysub/q_26
+    SLICE_X30Y95         LUT6 (Prop_lut6_I2_O)        0.328   101.456 r  AB[6]_i_397/O
+                         net (fo=3, routed)           1.021   102.477    nolabel_line838/A44[26]
+    SLICE_X29Y101        LUT5 (Prop_lut5_I4_O)        0.152   102.629 r  AB[7]_i_397/O
+                         net (fo=3, routed)           0.843   103.472    nolabel_line838/step44/myadd/q_26
+    SLICE_X30Y100        LUT3 (Prop_lut3_I1_O)        0.356   103.828 r  AB[8]_i_397/O
+                         net (fo=1, routed)           0.439   104.267    nolabel_line838/step44/myadd/q_27
+    SLICE_X31Y102        LUT6 (Prop_lut6_I5_O)        0.328   104.595 r  AB[8]_i_378/O
+                         net (fo=5, routed)           0.845   105.440    nolabel_line838/A45[27]
+    SLICE_X30Y103        LUT3 (Prop_lut3_I2_O)        0.150   105.590 r  AB[9]_i_377/O
+                         net (fo=1, routed)           0.469   106.060    nolabel_line838/step45/mysub/q_27
+    SLICE_X30Y103        LUT6 (Prop_lut6_I2_O)        0.328   106.388 r  AB[9]_i_360/O
+                         net (fo=5, routed)           0.625   107.013    nolabel_line838/A46[27]
+    SLICE_X30Y104        LUT5 (Prop_lut5_I0_O)        0.124   107.137 r  AB[11]_i_360/O
+                         net (fo=3, routed)           0.776   107.913    nolabel_line838/step46/mysub/q_28
+    SLICE_X30Y106        LUT6 (Prop_lut6_I2_O)        0.124   108.037 r  AB[11]_i_343/O
+                         net (fo=3, routed)           0.683   108.720    nolabel_line838/A47[28]
+    SLICE_X29Y106        LUT5 (Prop_lut5_I4_O)        0.152   108.872 r  AB[12]_i_341/O
+                         net (fo=3, routed)           0.746   109.617    nolabel_line838/step47/mysub/q_28
+    SLICE_X31Y105        LUT5 (Prop_lut5_I2_O)        0.358   109.975 r  AB[14]_i_340/O
+                         net (fo=3, routed)           0.736   110.712    nolabel_line838/step47/mysub/q_30
+    SLICE_X33Y105        LUT5 (Prop_lut5_I2_O)        0.326   111.038 r  AB[0]_i_337/O
+                         net (fo=3, routed)           0.727   111.765    nolabel_line838/step47/mysub/q_32
+    SLICE_X35Y105        LUT5 (Prop_lut5_I2_O)        0.150   111.915 r  AB[2]_i_336/O
+                         net (fo=3, routed)           0.471   112.386    nolabel_line838/step47/mysub/q_34
+    SLICE_X35Y105        LUT6 (Prop_lut6_I2_O)        0.326   112.712 r  AB[2]_i_319/O
+                         net (fo=3, routed)           0.938   113.650    nolabel_line838/A48[34]
+    SLICE_X36Y106        LUT5 (Prop_lut5_I4_O)        0.152   113.802 r  AB[3]_i_320/O
+                         net (fo=3, routed)           0.892   114.694    nolabel_line838/step48/myadd/q_34
+    SLICE_X36Y106        LUT3 (Prop_lut3_I1_O)        0.362   115.056 r  AB[4]_i_322/O
+                         net (fo=1, routed)           0.299   115.355    nolabel_line838/step48/myadd/q_35
+    SLICE_X37Y106        LUT6 (Prop_lut6_I5_O)        0.327   115.682 r  AB[4]_i_303/O
+                         net (fo=5, routed)           0.866   116.548    nolabel_line838/A49[35]
+    SLICE_X40Y109        LUT6 (Prop_lut6_I2_O)        0.124   116.672 r  AB[6]_i_305_rewire/O
+                         net (fo=3, routed)           1.071   117.743    nolabel_line838/step49/myadd/q_36
+    SLICE_X48Y108        LUT3 (Prop_lut3_I1_O)        0.152   117.895 r  AB[7]_i_304/O
+                         net (fo=1, routed)           0.288   118.183    nolabel_line838/step49/myadd/q_37
+    SLICE_X48Y108        LUT6 (Prop_lut6_I5_O)        0.332   118.515 r  AB[7]_i_285/O
+                         net (fo=5, routed)           0.664   119.179    nolabel_line838/A50[37]
+    SLICE_X41Y108        LUT6 (Prop_lut6_I4_O)        0.124   119.303 r  AB[7]_i_267/O
+                         net (fo=3, routed)           0.810   120.113    nolabel_line838/A51[36]
+    SLICE_X40Y110        LUT5 (Prop_lut5_I4_O)        0.150   120.263 r  AB[8]_i_268/O
+                         net (fo=3, routed)           0.750   121.013    nolabel_line838/step51/myadd/q_36
+    SLICE_X48Y107        LUT3 (Prop_lut3_I1_O)        0.320   121.333 r  AB[9]_i_268/O
+                         net (fo=1, routed)           0.875   122.208    nolabel_line838/step51/myadd/q_37
+    SLICE_X41Y108        LUT6 (Prop_lut6_I5_O)        0.326   122.534 r  AB[9]_i_249/O
+                         net (fo=7, routed)           0.469   123.004    nolabel_line838/A52[37]
+    SLICE_X40Y107        LUT3 (Prop_lut3_I2_O)        0.124   123.128 r  AB[10]_i_249/O
+                         net (fo=1, routed)           0.669   123.797    nolabel_line838/step52/mysub/q_37
+    SLICE_X40Y107        LUT6 (Prop_lut6_I2_O)        0.124   123.921 r  AB[10]_i_232/O
+                         net (fo=5, routed)           0.934   124.855    nolabel_line838/A53[37]
+    SLICE_X40Y106        LUT5 (Prop_lut5_I0_O)        0.150   125.005 r  AB[12]_i_227/O
+                         net (fo=3, routed)           0.466   125.471    nolabel_line838/step53/mysub/q_38
+    SLICE_X40Y106        LUT6 (Prop_lut6_I2_O)        0.326   125.797 r  AB[12]_i_207/O
+                         net (fo=3, routed)           0.808   126.605    nolabel_line838/A54[38]
+    SLICE_X39Y106        LUT5 (Prop_lut5_I4_O)        0.150   126.755 r  AB[13]_i_205/O
+                         net (fo=3, routed)           0.751   127.506    nolabel_line838/step54/myadd/q_38
+    SLICE_X38Y103        LUT5 (Prop_lut5_I2_O)        0.332   127.838 r  AB[15]_i_230/O
+                         net (fo=3, routed)           1.050   128.888    nolabel_line838/step54/myadd/q_40
+    SLICE_X48Y103        LUT5 (Prop_lut5_I2_O)        0.150   129.038 r  AB[1]_i_213/O
+                         net (fo=3, routed)           0.663   129.700    nolabel_line838/step54/myadd/q_42
+    SLICE_X49Y103        LUT5 (Prop_lut5_I2_O)        0.352   130.052 r  AB[3]_i_216/O
+                         net (fo=3, routed)           1.076   131.128    nolabel_line838/step54/myadd/q_44
+    SLICE_X49Y100        LUT5 (Prop_lut5_I2_O)        0.352   131.480 r  AB[5]_i_221/O
+                         net (fo=3, routed)           0.610   132.090    nolabel_line838/step54/myadd/q_46
+    SLICE_X49Y101        LUT6 (Prop_lut6_I5_O)        0.326   132.416 r  AB[5]_i_202/O
+                         net (fo=3, routed)           0.618   133.034    nolabel_line838/A55[46]
+    SLICE_X50Y101        LUT5 (Prop_lut5_I4_O)        0.150   133.184 r  AB[6]_i_203/O
+                         net (fo=3, routed)           0.783   133.967    nolabel_line838/step55/myadd/q_46
+    SLICE_X51Y100        LUT6 (Prop_lut6_I5_O)        0.348   134.315 r  AB[6]_i_184/O
+                         net (fo=3, routed)           0.630   134.944    nolabel_line838/A56[46]
+    SLICE_X49Y100        LUT5 (Prop_lut5_I4_O)        0.124   135.068 r  AB[7]_i_182/O
+                         net (fo=3, routed)           0.827   135.895    nolabel_line838/step56/mysub/q_46
+    SLICE_X50Y99         LUT5 (Prop_lut5_I2_O)        0.153   136.048 r  AB[9]_i_179/O
+                         net (fo=3, routed)           0.618   136.666    nolabel_line838/step56/mysub/q_48
+    SLICE_X49Y98         LUT3 (Prop_lut3_I0_O)        0.331   136.997 r  AB[10]_i_176/O
+                         net (fo=1, routed)           0.642   137.639    nolabel_line838/step56/mysub/q_49
+    SLICE_X48Y98         LUT6 (Prop_lut6_I2_O)        0.124   137.763 r  AB[10]_i_156/O
+                         net (fo=5, routed)           0.843   138.605    nolabel_line838/A57[49]
+    SLICE_X46Y99         LUT6 (Prop_lut6_I4_O)        0.124   138.729 r  AB[10]_i_135/O
+                         net (fo=3, routed)           0.825   139.554    nolabel_line838/A58[48]
+    SLICE_X46Y98         LUT5 (Prop_lut5_I4_O)        0.148   139.702 r  AB[11]_i_133/O
+                         net (fo=3, routed)           0.815   140.517    nolabel_line838/step58/myadd/q_48
+    SLICE_X46Y97         LUT5 (Prop_lut5_I2_O)        0.357   140.874 r  AB[13]_i_127/O
+                         net (fo=3, routed)           0.440   141.315    nolabel_line838/step58/myadd/q_50
+    SLICE_X46Y96         LUT5 (Prop_lut5_I2_O)        0.324   141.639 r  AB[15]_i_143/O
+                         net (fo=3, routed)           0.896   142.535    nolabel_line838/step58/myadd/q_52
+    SLICE_X48Y96         LUT5 (Prop_lut5_I2_O)        0.376   142.911 r  AB[1]_i_126/O
+                         net (fo=3, routed)           0.745   143.656    nolabel_line838/step58/myadd/q_54
+    SLICE_X44Y94         LUT6 (Prop_lut6_I5_O)        0.332   143.988 r  AB[1]_i_104/O
+                         net (fo=3, routed)           0.675   144.662    nolabel_line838/A59[54]
+    SLICE_X46Y94         LUT5 (Prop_lut5_I4_O)        0.124   144.786 r  AB[2]_i_103/O
+                         net (fo=3, routed)           0.661   145.448    nolabel_line838/step59/mysub/q_54
+    SLICE_X46Y94         LUT6 (Prop_lut6_I2_O)        0.124   145.572 r  AB[2]_i_83/O
+                         net (fo=3, routed)           0.849   146.421    nolabel_line838/A60[54]
+    SLICE_X46Y93         LUT5 (Prop_lut5_I4_O)        0.150   146.571 r  AB[3]_i_87/O
+                         net (fo=3, routed)           0.593   147.164    nolabel_line838/step60/myadd/q_54
+    SLICE_X47Y93         LUT5 (Prop_lut5_I2_O)        0.374   147.538 r  AB[5]_i_92/O
+                         net (fo=3, routed)           0.546   148.084    nolabel_line838/step60/myadd/q_56
+    SLICE_X46Y93         LUT5 (Prop_lut5_I2_O)        0.358   148.442 r  AB[7]_i_92/O
+                         net (fo=3, routed)           0.837   149.279    nolabel_line838/step60/myadd/q_58
+    SLICE_X47Y92         LUT3 (Prop_lut3_I1_O)        0.383   149.662 r  AB[8]_i_92/O
+                         net (fo=1, routed)           0.598   150.260    nolabel_line838/step60/myadd/q_59
+    SLICE_X47Y91         LUT6 (Prop_lut6_I5_O)        0.332   150.592 r  AB[8]_i_67/O
+                         net (fo=5, routed)           0.472   151.064    nolabel_line838/A61[59]
+    SLICE_X46Y90         LUT6 (Prop_lut6_I4_O)        0.124   151.188 r  AB[8]_i_43/O
+                         net (fo=3, routed)           0.605   151.794    nolabel_line838/A62[58]
+    SLICE_X45Y90         LUT5 (Prop_lut5_I4_O)        0.124   151.918 r  AB[9]_i_42/O
+                         net (fo=3, routed)           0.592   152.510    nolabel_line838/step62/mysub/q_58
+    SLICE_X45Y90         LUT6 (Prop_lut6_I2_O)        0.124   152.634 r  AB[9]_i_27/O
+                         net (fo=3, routed)           0.683   153.317    nolabel_line838/A63[58]
+    SLICE_X44Y90         LUT5 (Prop_lut5_I4_O)        0.124   153.441 r  AB[10]_i_28/O
+                         net (fo=3, routed)           0.458   153.899    nolabel_line838/step64/myadd/q_58
+    SLICE_X42Y90         LUT5 (Prop_lut5_I2_O)        0.124   154.023 r  AB[12]_i_28/O
+                         net (fo=3, routed)           0.447   154.470    nolabel_line838/step64/myadd/q_60
+    SLICE_X45Y89         LUT3 (Prop_lut3_I1_O)        0.124   154.594 r  AB[13]_i_27/O
+                         net (fo=1, routed)           0.615   155.210    nolabel_line838/step64/myadd/q_61
+    SLICE_X42Y90         LUT6 (Prop_lut6_I5_O)        0.124   155.334 r  AB[13]_i_14/O
+                         net (fo=1, routed)           0.450   155.784    m[125]
+    SLICE_X43Y90         LUT6 (Prop_lut6_I0_O)        0.124   155.908 r  AB[13]_i_7/O
+                         net (fo=1, routed)           0.000   155.908    AB[13]_i_7_n_0
+    SLICE_X43Y90         MUXF7 (Prop_muxf7_I1_O)      0.217   156.125 r  AB_reg[13]_i_3/O
+                         net (fo=1, routed)           0.000   156.125    AB_reg[13]_i_3_n_0
+    SLICE_X43Y90         MUXF8 (Prop_muxf8_I1_O)      0.094   156.219 r  AB_reg[13]_i_1/O
+                         net (fo=1, routed)           0.000   156.219    AB[13]
+    SLICE_X43Y90         FDRE                                         r  AB_reg[13]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=811, routed)         1.435    14.776    clk_IBUF_BUFG
+    SLICE_X43Y90         FDRE                                         r  AB_reg[13]/C
+                         clock pessimism              0.258    15.034    
+                         clock uncertainty           -0.035    14.999    
+    SLICE_X43Y90         FDRE (Setup_fdre_C_D)        0.064    15.063    AB_reg[13]
+  -------------------------------------------------------------------
+                         required time                         15.063    
+                         arrival time                        -156.219    
+  -------------------------------------------------------------------
+                         slack                               -141.156    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.051ns  (arrival time - required time)
+  Source:                 ab_reg[25]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ab_reg[29]_replica_1/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.394ns  (logic 0.141ns (35.780%)  route 0.253ns (64.220%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.271ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.960ns
+    Source Clock Delay      (SCD):    1.445ns
+    Clock Pessimism Removal (CPR):    0.244ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.631     0.858    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=811, routed)         0.562     1.445    clk_IBUF_BUFG
+    SLICE_X31Y50         FDRE                                         r  ab_reg[25]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X31Y50         FDRE (Prop_fdre_C_Q)         0.141     1.586 r  ab_reg[25]/Q
+                         net (fo=10, routed)          0.253     1.839    ab_reg_n_0_[25]
+    SLICE_X28Y45         FDRE                                         r  ab_reg[29]_replica_1/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.685     1.099    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
+                         net (fo=811, routed)         0.833     1.960    clk_IBUF_BUFG
+    SLICE_X28Y45         FDRE                                         r  ab_reg[29]_replica_1/C
+                         clock pessimism             -0.244     1.716    
+    SLICE_X28Y45         FDRE (Hold_fdre_C_D)         0.072     1.788    ab_reg[29]_replica_1
+  -------------------------------------------------------------------
+                         required time                         -1.788    
+                         arrival time                           1.839    
+  -------------------------------------------------------------------
+                         slack                                  0.051    
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         sys_clk_pin
+Waveform(ns):       { 0.000 5.000 }
+Period(ns):         10.000
+Sources:            { clk }
+
+Check Type        Corner  Lib Pin  Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location       Pin
+Min Period        n/a     BUFG/I   n/a            2.155         10.000      7.845      BUFGCTRL_X0Y0  clk_IBUF_BUFG_inst/I
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X51Y36   a/counter_value_reg[1]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X50Y39   a/counter_value_reg[13]/C
+
+
+

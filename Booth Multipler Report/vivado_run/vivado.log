@@ -1,0 +1,35 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Wed Nov 13 17:19:37 2019
+# Process ID: 10632
+# Current directory: C:/Users/Aditya Tripathi/Desktop/WEEK4_include_structural_booth/week4/blog/Mult/vivado_run
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12940 C:\Users\Aditya Tripathi\Desktop\WEEK4_include_structural_booth\week4\blog\Mult\vivado_run\post_synth.dcp
+# Log file: C:/Users/Aditya Tripathi/Desktop/WEEK4_include_structural_booth/week4/blog/Mult/vivado_run/vivado.log
+# Journal file: C:/Users/Aditya Tripathi/Desktop/WEEK4_include_structural_booth/week4/blog/Mult/vivado_run\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_checkpoint {C:/Users/Aditya Tripathi/Desktop/WEEK4_include_structural_booth/week4/blog/Mult/vivado_run/post_synth.dcp}
+Command: open_checkpoint {C:/Users/Aditya Tripathi/Desktop/WEEK4_include_structural_booth/week4/blog/Mult/vivado_run/post_synth.dcp}
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.220 . Memory (MB): peak = 629.637 ; gain = 0.434
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.1/data/ip'.
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Netlist 29-17] Analyzing 120 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'top' is not ideal for floorplanning, since the cellview 'top' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-479] Netlist was created with Vivado 2019.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1014.125 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2019.1 (64-bit) build 2552052
+open_checkpoint: Time (s): cpu = 00:01:11 ; elapsed = 00:01:46 . Memory (MB): peak = 1163.238 ; gain = 552.109
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Nov 13 17:50:57 2019...
