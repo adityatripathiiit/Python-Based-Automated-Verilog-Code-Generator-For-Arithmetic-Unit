@@ -76,27 +76,30 @@ The generated code is structural and only has a combinational circuit.
 ![alt text](https://github.com/adityatripathiiit/Python-Based-Automated-Verilog-Code-Generator-For-Arithmetic-Unit/blob/master/screenshots/home2.png)
 ####
  ####
-###  Kogge Stone adder: 
-Like the carry-look ahead adder, it also produces Generate and Propagate bits at each stage, and it is also a parallel prefix adder.     Only, the difference occurs in the carry look ahead adder network.
-  #### It has 3 stages:
- ##### Pre-processing: 
-   It generates the carry and propagate signals for each of the bits in A and B. 
- ##### Carry look ahead network:
-   This step distinguishes Kogge Stone Adder from other types of adders. It makes use of ‘group propagate’ and ‘generate’ to          generate the carry bits.
-   ##### Post-processing: 
-  This step is concerned with the generation of the sum bits.
+##  Kogge Stone adder: 
+* Like the carry-look ahead adder, it also produces Generate and Propagate bits at each stage, and it is also a parallel prefix adder.     Only, the difference occurs in the carry look ahead adder network.
+  ## It has 3 stages:
+ ### Pre-processing: 
+   * It generates the carry and propagate signals for each of the bits in A and B. 
+ ### Carry look ahead network:
+   * This step distinguishes Kogge Stone Adder from other types of adders. It makes use of ‘group propagate’ and ‘generate’ to          generate the carry bits.
+   ### Post-processing: 
+  * This step is concerned with the generation of the sum bits.
 
-   #### Kogge Stone Adder makes use of the following two components:
-  ##### Gray cell: 
-   This cell makes the ‘generate’ with the help of ‘group propagate’ and ‘group generate’ bits.
-##### Black cell: 
-   This cell makes the ‘generate’ and ‘carry’ with the help of ‘group propagate’ and ‘group generate’ bits.
+   ### Kogge Stone Adder makes use of the following two components:
+  ### Gray cell: 
+   * This cell makes the ‘generate’ with the help of ‘group propagate’ and ‘group generate’ bits.
+### Black cell: 
+   * This cell makes the ‘generate’ and ‘carry’ with the help of ‘group propagate’ and ‘group generate’ bits.
 
-#### Black cells and Gray Cells
+### Black cells and Gray Cells
 * Black cell and gray cells are denoted by bcell and gcell in the jinja template. 
 * Both of them deals with the idea of propagate and generate signals. Propagate and generate signals are used to evaluate the sum and carry signals like in carry look ahead adder. 
 * In Kogge Stone adder the same generate and propagate signals are used in groups Combination of grouped propagte and generate signals are used in the form of black and grey cells. 
 * In black cell both group and propagate signals are generated. In grey cell only generate signals are genereated. Combination of black and grey cells are used strtucturally to form the layers of Kogge Stone Adder.
+
+### Here are the equations that governs the black cell and grey cell:
+![alt text](https://github.com/adityatripathiiit/Python-Based-Automated-Verilog-Code-Generator-For-Arithmetic-Unit/blob/master/screenshots/gen_prop.PNG)
 
 ###  Carry look ahead adder:
    * Primarily, at each stage, a “generate” and a “propagate” bit is generated. The Propagate bit comprises of the XOR operation and the     Generate bit, the AND operation. For inputs of length, it takes O(log n) of computation time.
@@ -129,7 +132,7 @@ Like the carry-look ahead adder, it also produces Generate and Propagate bits at
 ![alt text](https://github.com/adityatripathiiit/Python-Based-Automated-Verilog-Code-Generator-For-Arithmetic-Unit/blob/master/screenshots/home4.png)
 ####
  ####
-### * Restoring Array divider:
+## * Restoring Array divider:
 * It divides two unsigned integers, returning the quotient and remainder. As compared to the other division algorithms, this algorithm is rather slower and closely resembles the division algorithm done by hand. 
 * The division follows a fixed algorithm.In the first step, the registers are initialized as follows: A: Dividend, B: Divisor, C:         0 and, N= number of bits in the dividend.
 * The second step involves shifting right the contents of CA as if they are a single unit. 
@@ -141,7 +144,7 @@ Like the carry-look ahead adder, it also produces Generate and Propagate bits at
 
 ####
  ####
-### Booth multiplier: 
+## Booth multiplier: 
 * It multiplies two signed binary numbers in 2’s complement form. 
 * The algorithm proceeds by comparing the least significant of the multiplier, and another dummy register, initialised with the value zero. 
 * For the various cases, shifting operations are performed and the dummy register is updated by the additions or subtractions as required.
